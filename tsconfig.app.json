@@ -2,7 +2,11 @@
   "compilerOptions": {
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
     "target": "ES2022",
-    "lib": ["ES2023", "DOM", "DOM.Iterable"],
+    "lib": [
+      "ES2023",
+      "DOM",
+      "DOM.Iterable"
+    ],
     "module": "ESNext",
     "moduleResolution": "bundler",
     "jsx": "react-jsx",
@@ -17,7 +21,20 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "noEmit": true,
-    "types": ["vite/client"]
+    "types": [
+      "vite/client"
+    ]
   },
-  "include": ["src", "tests/domain", "tests/planner", "tests/application", "tests/catalogue", "tests/helpers"]
+  "include": [
+    "src",
+    "tests/domain",
+    "tests/planner",
+    "tests/application",
+    "tests/catalogue",
+    "tests/helpers"
+  ],
+  "exclude": [
+    "src/cli",
+    "src/mcp"
+  ]
 }

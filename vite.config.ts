@@ -53,7 +53,9 @@ export default defineConfig({
   build: { target: 'es2022', sourcemap: true, chunkSizeWarningLimit: 900 },
   test: {
     environment: 'node',
-    include: ['tests/{domain,planner,application,catalogue}/**/*.test.{ts,tsx}'],
+    include: ['tests/{domain,planner,application,catalogue,cli}/**/*.test.{ts,tsx}'],
     setupFiles: ['tests/helpers/setup.ts'],
+    globalSetup: ['tests/cli/global-setup.ts'],
+    testTimeout: 20_000,
   },
 });

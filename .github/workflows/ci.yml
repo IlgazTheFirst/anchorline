@@ -31,6 +31,14 @@ jobs:
         run: npm test
       - name: Production build
         run: npm run build
+      - name: Bundled CLI is up to date
+        run: |
+          npm run build:cli
+          git diff --exit-code -- skills/anchorline/scripts/anchorline.mjs || (echo "Run npm run build:cli and commit the result." && exit 1)
+      - name: CLI smoke test
+        run: |
+          node skills/anchorline/scripts/anchorline.mjs --version
+          node skills/anchorline/scripts/anchorline.mjs plan --from Example --tz Europe/London --depart 2031-02-01 --nights 10 --beach-nights 4 > /dev/null
       - name: Install Playwright browser
         run: npx playwright install --with-deps chromium
       - name: Browser journeys (production build, desktop and mobile)

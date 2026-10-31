@@ -1,53 +1,33 @@
 {
   "name": "anchorline",
-  "private": true,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Plan around what can't move. Offline-first holiday planner with an explainable engine, for the browser, the terminal, Claude and ChatGPT.",
   "license": "MIT",
+  "author": "IlgazTheFirst (https://github.com/IlgazTheFirst)",
   "type": "module",
+  "bin": {
+    "anchorline": "skills/anchorline/scripts/anchorline.mjs"
+  },
+  "files": [
+    "skills/anchorline/",
+    ".claude-plugin/",
+    "integrations/",
+    "docs/brand/logo-512.png",
+    "docs/brand/logo.svg",
+    "README.md",
+    "LICENSE",
+    "NOTICE.md"
+  ],
   "engines": {
     "node": ">=20.19.0"
-  },
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "preview": "vite preview --port 4173 --strictPort",
-    "typecheck": "tsc -b --pretty",
-    "lint": "eslint .",
-    "test": "vitest run",
-    "test:watch": "vitest",
-    "test:e2e": "playwright test",
-    "check": "npm run typecheck && npm run lint && npm run test && npm run build",
-    "check:links": "node scripts/check-pack-links.mjs",
-    "screenshots": "node scripts/screenshots.mjs"
-  },
-  "dependencies": {
-    "dexie": "4.4.7",
-    "react": "19.3.1",
-    "react-dom": "19.3.1",
-    "temporal-polyfill": "1.0.6",
-    "zod": "4.6.7"
-  },
-  "devDependencies": {
-    "@eslint/js": "10.0.1",
-    "@playwright/test": "1.64.1",
-    "@types/node": "20.19.43",
-    "@types/react": "19.3.0",
-    "@types/react-dom": "19.3.0",
-    "@vitejs/plugin-react": "6.1.2",
-    "eslint": "10.14.0",
-    "eslint-plugin-react-hooks": "7.1.1",
-    "eslint-plugin-react-refresh": "0.5.7",
-    "fake-indexeddb": "6.2.7",
-    "globals": "17.13.0",
-    "typescript": "6.0.3",
-    "typescript-eslint": "8.72.1",
-    "vite": "8.3.5",
-    "vitest": "4.1.12"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/IlgazTheFirst/anchorline.git"
+  },
+  "homepage": "https://github.com/IlgazTheFirst/anchorline#readme",
+  "bugs": {
+    "url": "https://github.com/IlgazTheFirst/anchorline/issues"
   },
   "keywords": [
     "travel",
@@ -63,8 +43,43 @@
     "ai-agents",
     "cli"
   ],
-  "homepage": "https://github.com/IlgazTheFirst/anchorline#readme",
-  "bugs": {
-    "url": "https://github.com/IlgazTheFirst/anchorline/issues"
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview --port 4173 --strictPort",
+    "typecheck": "tsc -b --pretty",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "check": "npm run typecheck && npm run lint && npm run test && npm run build && npm run build:cli",
+    "check:links": "node scripts/check-pack-links.mjs",
+    "screenshots": "node scripts/screenshots.mjs",
+    "build:cli": "node scripts/build-cli.mjs",
+    "prepack": "npm run build:cli"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@modelcontextprotocol/sdk": "1.32.2",
+    "@playwright/test": "1.64.1",
+    "@types/node": "20.19.43",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.1.2",
+    "dexie": "4.4.7",
+    "esbuild": "0.28.2",
+    "eslint": "10.14.0",
+    "eslint-plugin-react-hooks": "7.1.1",
+    "eslint-plugin-react-refresh": "0.5.7",
+    "fake-indexeddb": "6.2.7",
+    "globals": "17.13.0",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "temporal-polyfill": "1.0.6",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.72.1",
+    "vite": "8.3.5",
+    "vitest": "4.1.12",
+    "zod": "4.6.7"
   }
 }
