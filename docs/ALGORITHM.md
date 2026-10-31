@@ -18,6 +18,7 @@ Code: `src/planner/` (pure TypeScript; it never imports React or storage).
 | Fixed event | a **pin**: the event's place must hold the nights from the day before the event (when the trip allows) through the night the event ends, so you arrive in good time and do not travel straight after |
 | Protected rest | a pin over the rest interval |
 | Locked stay dates | an **exact** pin: same place, same check-in and check-out |
+| A stay at one of your own places (outside the catalogue) | an exact pin too: the planner knows nothing about it, so it keeps the stay where you put it and plans around it |
 | Locked journey times, locked activities | carried into the new plan unchanged |
 | Home deadline | checked against the day you leave; a deadline before it is a conflict |
 | Profile | interest weights (0–3), pace, quiet evenings, family, step-free |
@@ -43,7 +44,7 @@ Place orders are built one stop at a time:
 - A step is allowed only if the route graph connects the two places. The graph (`src/planner/graph.ts`) holds the pack's documented connections; all-pairs best transfers are computed with Floyd–Warshall on typical minutes (midpoint of each range, plus 120 minutes per extra hop), so "Phuket → Chiang Mai via Bangkok" is possible when no direct option is listed.
 - Pinned places must appear in the order of their dates.
 - A partial order is pruned if the required places still missing cannot fit in the remaining stops.
-- Each partial order gets a quick score (ideal nights at each stop, minus penalties, plus variety) and only the best 160 survive each depth. Ties break on the place ids, so the search is stable.
+- Each partial order gets a quick score (ideal nights at each stop, minus penalties, plus variety) and only the best 160 survive each depth. Partial orders that already contain required places rank first (+10 per required place), because every final route must contain them; this never changes how complete routes compare. Ties break on the place ids, so the search is stable.
 - Up to 48 complete orders per depth (those containing every required place) go on to exact night allocation.
 
 The number of stops runs from the number of required places up to 8, also limited by the nights available.
@@ -75,7 +76,7 @@ The best plan is returned with up to three alternatives (mirror-image routes are
 
 ## 7. Activities
 
-For each stop, interior days (not arrival, departure, fixed-event or rest days) get suggestions. Slow pace gives about one activity every two days, balanced one a day, fast one and a half. At least one part of every day stays free.
+For each stop, interior days (not arrival, departure, fixed-event or rest days) get suggestions. Slow pace gives about one activity every two days, balanced three every four days, fast five every four days. Each activity goes to the least busy valid day, so plans spread out instead of front-loading. A day holds either one full-day outing or at most two part-day activities, so at least one part of every day stays free. With **Keep the morning after a late night free** (on in "A bit of everything"), nothing is planned the morning after a night-time activity, or after a timed event that ends at 22:00 or later or crosses midnight.
 
 Catalogue activities are ranked by the match with your interests plus how distinctive they are. Filters: no alcohol-focused activities with quiet evenings, only family-friendly ones with children, nothing marked not step-free when you need step-free access, nothing strenuous at a slow pace. Day-of-week schedules are respected; if a highly distinctive activity only runs on a day you are not there, the plan says so. Recurring events (for example lunar-calendar parties) are **never** placed on a date. The plan tells you to check the date yourself.
 
@@ -98,7 +99,18 @@ You decide whether to apply it, and you can undo it afterwards.
 
 ## 10. Surprises
 
-`suggestSurprises()` (`src/planner/surprise.ts`) picks at most three catalogue experiences that are not yet in the plan. Each one fits your interests, sits on a genuinely free full day (no fixed event, no protected rest, fewer than two activities) and respects day-of-week schedules. Experiences that add an interest the plan lacks rank higher. Asking again rotates through further ideas deterministically. Each suggestion is an `AddActivity` proposal with a source link. It needs your Apply like everything else.
+`suggestSurprises()` (`src/planner/surprise.ts`) picks at most three experiences that are not yet in the plan, on different days. Candidates are catalogue activities where you stay, plus **day trips** to catalogue places that are not on your route and are reachable by a non-flight connection of at most 150 minutes each way (for example Bangkok → Ayutthaya, Ko Samui → Ko Pha-ngan, Ao Nang → Ko Lanta).
+
+A surprise only goes on a day that:
+
+- has no fixed event and no protected rest;
+- has no travel;
+- still has at least two free parts, so one stays free afterwards;
+- respects recovery mornings and day-of-week schedules.
+
+Day trips and full-day outings need an empty day. Experiences that add an interest the plan lacks rank higher. Asking again rotates through further ideas deterministically. Each suggestion is an `AddActivity` proposal with source links (the activity and, for day trips, the connection). It needs your Apply like everything else.
+
+Activities that only run on certain weekdays keep that schedule. If an edit later moves one to another day (for example by shifting a stay), the checks flag it as unresolved instead of hiding it.
 
 ## Complexity
 

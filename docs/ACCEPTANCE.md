@@ -29,6 +29,10 @@ The release gate is a set of acceptance scenarios (A01–A17) and reference cons
 
 | Case | Domain test (Vitest) | Browser journey (Playwright) |
 |---|---|---|
+| Core flow: create → edit a stay → preview → apply → save → reload → undo | `pipeline.test.ts`, `storage.test.ts` | `core-flow.spec.ts` (desktop 1440×900 and mobile 390×844, screenshots in `docs/demo/`), `journey.spec.ts` |
+| Manual custom places | `custom-places.test.ts`, `planner.test.ts` | `custom-place.spec.ts` |
+| Editable "A bit of everything" preset | `presets.test.ts` | |
+| Surprises without overcrowding or displacing rest | `planner.test.ts` | |
 | A01 Correct nights | `nights.test.ts` | `journey.spec.ts` (night counts in the UI) |
 | A02 Cross-midnight event | `constraints.test.ts` (C18) | |
 | A03 Home arrival deadline | `constraints.test.ts` (C04) | |
