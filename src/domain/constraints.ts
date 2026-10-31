@@ -11,7 +11,7 @@ import {
   localDateOf,
   resolveZoned,
   toZoned,
-  type Temporal,
+  Temporal,
   type ZonedTime,
 } from './dates';
 import {
@@ -228,6 +228,22 @@ function evaluateAnchor(doc: TripDocument, anchor: Anchor): ConstraintResult {
       const label = anchor.label ?? `Home by ${formatZoned(anchor.deadline)}`;
       const deadline = resolveOrExplain(anchor.deadline, 'Deadline');
       if ('problem' in deadline) return { ...base, label, status: 'unresolved', explanation: deadline.problem, subjectIds: [], relaxations: [] };
+      // Even without journey times: if the last stay only ends after the deadline has passed, it cannot be met.
+      const lastStay = sortStays(doc.stays).filter((st) => st.placeId !== anchor.placeId).pop();
+      const lastZone = lastStay ? places.get(lastStay.placeId)?.timeZone : undefined;
+      if (lastStay && lastZone) {
+        const leavesFrom = Temporal.PlainDate.from(lastStay.checkOutExclusive).toZonedDateTime({ timeZone: lastZone }).toInstant();
+        if (cmp(leavesFrom, deadline.instant) > 0) {
+          return {
+            ...base,
+            label,
+            status: 'violated',
+            explanation: `Your last stay, ${nameOf(lastStay.placeId)}, ends on ${formatDate(lastStay.checkOutExclusive)}, after the deadline of ${formatZoned(anchor.deadline)} has already passed.`,
+            subjectIds: [lastStay.id],
+            relaxations: [`End ${nameOf(lastStay.placeId)} earlier, or shorten an earlier stay.`, 'Move the deadline, if it is really flexible.'],
+          };
+        }
+      }
       const legs = doc.travelLegs.filter((l) => l.toPlaceId === anchor.placeId);
       if (!legs.length) return { ...base, label, status: 'unresolved', explanation: `No journey to ${nameOf(anchor.placeId)} yet.`, subjectIds: [], relaxations: ['Add your return journey.'] };
       const untimed = legs.filter((l) => !l.arrival || !resolveInstant(l.arrival));

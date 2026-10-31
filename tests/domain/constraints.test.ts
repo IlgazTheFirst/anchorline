@@ -91,3 +91,16 @@ describe('weekday-only activities', () => {
     expect(flag?.explanation).toContain('usually runs on Sundays');
   });
 });
+
+describe('home deadline without journey times', () => {
+  it('is broken when the last stay only ends after the deadline has passed', () => {
+    const doc = demoTrip();
+    doc.travelLegs = doc.travelLegs.map((l) => (l.id === 'leg_return' ? { ...l, departure: null, arrival: null, timingStatus: 'unknown' as const } : l));
+    expect(evaluateConstraints(doc).find((r) => r.anchorId === 'anchor_home')?.status).toBe('unresolved');
+    const p = preview(doc, [{ type: 'ResizeStay', stayId: 'stay_skyline', nights: 3 }]);
+    const r = result(p, 'anchor_home');
+    expect(r?.status).toBe('violated');
+    expect(r?.explanation).toContain('ends on');
+    expect(p.canApply).toBe(false);
+  });
+});
