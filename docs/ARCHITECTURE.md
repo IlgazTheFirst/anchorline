@@ -18,6 +18,8 @@ UI (React)  ──propose(commands)──▶  application/proposal.ts  ──pre
 - **`src/application`**: proposal preview (validation → staleness → authorisation → apply on a copy → integrity → constraints → diff), pure undo/redo transitions, the repository interface, an in-memory repository, import/export and the allowlisted share builder.
 - **`src/storage`**: the Dexie repository. Commit, undo and redo run in a single read/write transaction that compares the current revision to the caller's base revision.
 - **`src/features`, `src/ui`**: React screens. They read derived data from the domain and send commands; they never edit the document directly.
+- **`src/application/api.ts`, `src/application/tripSpec.ts`**: the operations shared by the terminal and AI front doors (list places, plan from a trip spec, check, preview, share) plus plain-text rendering.
+- **`src/cli`, `src/mcp`**: the `anchorline` command and the MCP server (stdio, or stateless streamable HTTP). esbuild bundles both into one file, `skills/anchorline/scripts/anchorline.mjs`, used by npm's `bin`, the Agent Skill and the Claude Code plugin.
 
 ## Trip document
 

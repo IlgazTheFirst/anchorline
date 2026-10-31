@@ -24,6 +24,7 @@ CI runs the same steps on every pull request.
 - Keep each PR focused on one change, and explain *why* in the description.
 - Add or update tests. Domain rules belong in `tests/domain`, planner behaviour in `tests/planner`, pipeline, storage and import/export in `tests/application`, and user journeys in `tests/e2e`.
 - Keep `src/domain` and `src/planner` free of React, Dexie and browser APIs. ESLint enforces this.
+- The CLI and MCP server (`src/cli`, `src/mcp`) are bundled into `skills/anchorline/scripts/anchorline.mjs`, which is committed so the skill and plugin are self-contained. After changing anything under `src/`, run `npm run build:cli` and commit the result; CI fails if it is stale.
 - Every change to a trip must go through a typed command (`src/domain/commands.ts`) and the preview/apply pipeline. Never mutate a trip document directly from UI code.
 - Do not add a feature that looks like it works but does not: no fake buttons, no success toasts without a state change, no invented prices or departure times.
 - **Privacy:** never commit a real person's itinerary, booking references, contact details, screenshots of real trips or credentials. Fixtures must be fictional and say so.

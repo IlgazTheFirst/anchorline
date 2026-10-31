@@ -1,27 +1,134 @@
-# Anchorline
+<div align="center">
 
-**Plan around what can't move.**
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/brand/banner-dark.png">
+  <img alt="Anchorline: plan around what can't move" src="docs/brand/banner-light.png" width="100%">
+</picture>
 
+### Plan around what can't move.
 
-An open-source, offline-first holiday planner with an explainable planning engine. Start with your dates, travellers, interests and anything that is fixed. It recommends one route with its reasons, shows exactly what every change would do before it happens, and keeps everything in your own browser.
+[![CI](https://img.shields.io/github/actions/workflow/status/IlgazTheFirst/anchorline/ci.yml?branch=main&label=CI)](https://github.com/IlgazTheFirst/anchorline/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-14b8a6)](LICENSE)
+[![TypeScript](https://img.shields.io/badge/TypeScript-strict-0b1f33?logo=typescript&logoColor=white)](tsconfig.app.json)
+[![Offline-first](https://img.shields.io/badge/offline--first-yes-14b8a6)](#data-and-privacy)
+[![Claude Skill](https://img.shields.io/badge/Claude-Skill-ff6b57)](skills/anchorline/SKILL.md)
+[![MCP server](https://img.shields.io/badge/MCP-server-0b1f33)](integrations/README.md)
+[![PRs welcome](https://img.shields.io/badge/PRs-welcome-14b8a6)](CONTRIBUTING.md)
 
-- **Commitments survive edits.** A fixed event, a locked date, seven consecutive beach nights or "home by 23:00" cannot be broken by a suggestion or an edit. A change that would break one is shown, explained and blocked, with concrete ways to relax it. Nothing is ever unlocked for you.
-- **Every change is a preview first.** You see the stays, nights, journeys, activities, budget coverage and checks that would change. Then you choose **Apply changes** or **Keep current plan**. Undo and redo survive a reload.
-- **It is honest about what it knows.** Planning estimates, documented routes, timetables you checked, quotes and your own booking records are kept separate. An unknown price is never zero. Travel times are ranges, not invented departures. A city swap invalidates the old route's evidence and prices.
+[Quickstart](#quickstart) · [Use it anywhere](#use-it-anywhere) · [How the engine works](#how-the-engine-works) · [Core workflow](#core-workflow) · [Docs](docs/ALGORITHM.md) · [Contributing](CONTRIBUTING.md)
 
-No account, no API keys, no tracking, no paid services. It works offline once loaded.
+</div>
 
-![Workspace showing the fictional demo trip](docs/screenshots/demo-workspace.png)
+Anchorline is an open-source holiday planner for trips with things that can't move: a wedding on the 8th, three nights in Chiang Mai at least, a week on the beach, home by Sunday 23:00. Give it dates, interests and commitments. It recommends one route with its reasons and shows exactly what each edit would change before anything changes. It never invents a booking, a fare or a timetable. It runs in your browser with no account, in your terminal, and inside Claude and ChatGPT through an Agent Skill and an MCP server, all on the same tested engine.
 
-| A generated plan, shown as a preview | A change that would break a commitment | Mobile |
+<p align="center">
+  <img src="docs/brand/demo.gif" alt="Creating a trip, previewing a one-night change, applying it, reloading and undoing it" width="860">
+</p>
+
+## Why Anchorline
+
+- **Commitments survive edits.** Fixed events, locked dates, minimum stays, consecutive beach nights and the home-by deadline are hard rules. A change that would break one is blocked and explained, with concrete ways to relax it. Nothing is unlocked for you.
+- **Every change is previewed, and undo is real.** You see the stays, nights, journeys, activities, budget and checks that would change, then choose to apply or keep. Undo and redo are new revisions that survive a reload. A second tab can't silently overwrite the first.
+- **Nothing is invented.** Planning estimates, sourced facts, quotes you recorded and bookings you made are kept apart. Travel times are ranges, not made-up departures. An unknown price is unknown, not zero. Replacing a city invalidates the old route's evidence.
+
+## Features
+
+| Planning | Editing | Trust | Ownership |
+|---|---|---|---|
+| One explained route from a real catalogue of 15 places (Thailand, Malaysia, Singapore) | Resize, reorder, replace or add stops, with later stops shifting if you want | Checks marked *met*, *broken* or *unresolved*, with relaxations | Trips live in your browser (IndexedDB) and work offline |
+| Beam search plus exact night allocation that keeps every pin and minimum | Your own places anywhere, with name and time zone | Sources and check dates on every place, activity and route | Private backup, import, print |
+| A bit of everything by default: food, culture, evenings out, real beach time, downtime | Time-zone-aware journeys, with DST ambiguity resolved explicitly | Suggestions can't mark bookings, quotes or checked timetables | Shareable copy that always drops names, contacts, booking refs and notes |
+| Up to three surprises, including short day trips, never on a rest day | Budget lines with price basis, ranges and your own exchange rates | Weekday-only activities flagged if an edit moves them | MIT licensed, no tracking, no paid APIs |
+
+## Use it anywhere
+
+| Surface | Install | Tested |
 |---|---|---|
-| ![Generated plan preview](docs/screenshots/generated-preview.png) | ![Blocked change](docs/screenshots/blocked-preview.png) | ![Mobile view](docs/screenshots/mobile.png) |
+| **Browser** | `git clone https://github.com/IlgazTheFirst/anchorline && cd anchorline && npm ci && npm run dev` | Yes: Playwright journeys at desktop and mobile size, keyboard-only, offline reload |
+| **Terminal** | `node skills/anchorline/scripts/anchorline.mjs --help` from a clone (`npx anchorline` once it is on npm) | Yes: Vitest spawns the bundled CLI; CI smoke test |
+| **Claude Code plugin** | `/plugin marketplace add IlgazTheFirst/anchorline` then `/plugin install anchorline@anchorline` | Yes: validated, installed from a local marketplace, MCP server **Connected** ([details](integrations/claude-code.md#tested)) |
+| **Claude skill** | `cp -r skills/anchorline ~/.claude/skills/` | Partly: format checked against the Agent Skills spec and loaded by the plugin; claude.ai upload not tested |
+| **Claude Desktop (MCP)** | Add `node …/skills/anchorline/scripts/anchorline.mjs mcp` to `claude_desktop_config.json` ([guide](integrations/claude-desktop.md)) | Not in Claude Desktop itself; the same stdio server is tested with the MCP SDK client |
+| **ChatGPT** | `anchorline mcp --http 8787` behind your own HTTPS URL, added as a developer-mode connector ([guide](integrations/chatgpt.md)) | Not in ChatGPT; the HTTP transport is tested locally |
 
-Screenshots show the fictional demo trip and an example plan generated from made-up inputs.
+On Claude Code 2.1.275 or later, the plugin also installs in one step: `/plugin install anchorline --marketplace IlgazTheFirst/anchorline`.
+
+## Quickstart
+
+### Browser
+
+Requires Node.js 20.19 or newer.
+
+```bash
+git clone https://github.com/IlgazTheFirst/anchorline
+cd anchorline
+npm ci
+npm run dev            # http://localhost:5173
+```
+
+Choose **Start a new trip**, or **Open the fictional demo**. `npm run build && npm run preview` serves the offline-capable production build on http://localhost:4173.
+
+### Terminal
+
+The CLI is one bundled file with no dependencies. Run it from a clone with `node skills/anchorline/scripts/anchorline.mjs`, or put it on your PATH with `npm link`.
+
+```bash
+anchorline places
+anchorline plan --from London --tz Europe/London --depart 2031-02-01 --nights 14 \
+  --home-by 2031-02-16T23:00 --must "chiang mai:3" --beach-nights 5 --out trip.json
+anchorline check trip.json
+anchorline preview trip.json change.json      # shows the diff, writes nothing
+anchorline apply trip.json change.json --out trip-2.json
+anchorline export trip.json --share --omit-dates
+```
+
+```text
+Trip from London: 14 nights, 3 stops: Bangkok 4 · Chiang Mai 5 · Phuket 5.
+Style: A bit of everything, balanced pace.
+...
+Journeys (no times or fares yet)
+  London → Bangkok: flight
+  Bangkok → Chiang Mai: flight, about 1 h 5 min–1 h 25 min (planning estimate)
+  Chiang Mai → Phuket: flight, about 2 h–2 h 20 min (planning estimate)
+  Phuket → London: flight
+...
+Nothing here is booked. Travel times are planning estimates from documented routes, not timetables or fares. Prices are unknown unless you add them.
+```
+
+`plan` also reads a JSON trip spec from a file or stdin, and every command takes `--json`. The spec and command formats are in [the skill reference](skills/anchorline/SKILL.md#trip-spec) and [commands.md](skills/anchorline/references/commands.md). Changes are untrusted suggestions unless you pass `--as-user`. Exit codes: `0` ok, `1` bad input, `2` infeasible plan or a broken commitment under `check --strict`.
+
+### Claude Code
+
+```text
+/plugin marketplace add IlgazTheFirst/anchorline
+/plugin install anchorline@anchorline
+```
+
+Then ask: *"Plan 14 nights from London leaving 1 Feb 2031, at least 3 nights in Chiang Mai, 5 beach nights in a row, home by 16 Feb 23:00."* The skill drives the CLI. The MCP tools `plan_trip`, `check_trip`, `preview_change`, `share_export` and `list_places` are available too. See [integrations/claude-code.md](integrations/claude-code.md).
+
+### Claude Desktop and ChatGPT
+
+Both use the MCP server, `anchorline mcp`: over stdio for Claude Desktop, and over streamable HTTP with `--http <port>` for ChatGPT, which needs a public HTTPS URL that you host. See [claude-desktop.md](integrations/claude-desktop.md) and [chatgpt.md](integrations/chatgpt.md), which includes a Custom GPT instruction set.
+
+## How the engine works
+
+```mermaid
+flowchart LR
+  A["Trip spec or edit"] --> B["Commitments become pins and minimums"]
+  B --> C["Beam search over documented routes"]
+  C --> D["Exact night allocation (dynamic programme)"]
+  D --> E["Score: enjoyment + variety - moves - transfers"]
+  E --> F["One plan, reasons, open questions, alternatives"]
+  F --> G{"Preview"}
+  G -- ready --> H["Apply: atomic commit, undo/redo"]
+  G -- blocked --> I["Explain the broken commitment and relaxations"]
+```
+
+Fixed events, locked stays, your own places and protected rest become date pins. A beam search orders stops over a graph of documented connections. A dynamic programme then splits every night exactly, honouring pins, consecutive beach runs and full-day counts. Diminishing returns per night, a variety bonus, and penalties for moves, travel time and airport detours pick one route. The result, like every manual edit, goes through the same validated preview → apply pipeline. Same inputs and catalogue version, same plan. Every constant is in [docs/ALGORITHM.md](docs/ALGORITHM.md).
 
 ## Core workflow
 
-Create a trip → edit a stay → preview the impact → apply (saved) → reload → undo. It is automated in `tests/e2e/core-flow.spec.ts`, which captures every step at desktop (1440×900) and mobile (390×844) sizes. All inputs are made up.
+Create a trip → edit a stay → preview the impact → apply (saved) → reload → undo. It is automated in [`tests/e2e/core-flow.spec.ts`](tests/e2e/core-flow.spec.ts) at desktop (1440×900) and mobile (390×844) sizes, with made-up inputs.
 
 | Step | Desktop | Mobile |
 |---|---|---|
@@ -34,90 +141,38 @@ Create a trip → edit a stay → preview the impact → apply (saved) → reloa
 | 7. Reload: still there | [desktop](docs/demo/desktop-07-after-reload.png) | [mobile](docs/demo/mobile-07-after-reload.png) |
 | 8. Undo (a new revision, 4) | [desktop](docs/demo/desktop-08-after-undo.png) | [mobile](docs/demo/mobile-08-after-undo.png) |
 
-## Quick start
+| Workspace (fictional demo) | A change that would break a commitment | Mobile |
+|---|---|---|
+| ![Workspace](docs/screenshots/demo-workspace.png) | ![Blocked change](docs/screenshots/blocked-preview.png) | ![Mobile](docs/screenshots/mobile.png) |
 
-Requires Node.js 20.19 or newer (CI uses the version in `.nvmrc`).
+## Data and privacy
 
-```bash
-npm ci
-npm run dev          # http://localhost:5173
-```
+- Trips stay on your device. The web app makes no network requests beyond its own files; the CLI and MCP server make none at all.
+- Every accepted change is saved atomically with its undo history. Imports are size-limited and fully validated before anything is written. Only `http(s)` links are kept, and text is never rendered as HTML.
+- A shareable copy is built from an allowlist: traveller names and contacts, booking references, private notes and history never leave.
 
-Then choose **Start a new trip**, or **Open the fictional demo**.
-
-| Command | What it does |
-|---|---|
-| `npm run dev` | Development server |
-| `npm run build` | Type-check and build the production app into `dist/` |
-| `npm run preview` | Serve the production build on http://localhost:4173 (offline-capable) |
-| `npm test` | Domain, planner, storage and import/export tests (Vitest) |
-| `npm run test:e2e` | Browser journeys against the production build (Playwright). First run: `npx playwright install chromium` |
-| `npm run lint` / `npm run typecheck` | ESLint / TypeScript |
-| `npm run check` | Typecheck, lint, unit tests and build in one go |
-| `npm run check:links` | Check that every source link in the destination packs resolves (needs network) |
-
-## What you can do
-
-1. **Create** a trip with home city and time zone, dates, a home-by deadline, travellers, rooms, currency, budget approach and a travel style. The default preset, **A bit of everything**, means good food, city exploring and culture, social evenings, proper beach time, a little adventure and enough downtime. Every setting is editable, and there are other starting points (Quiet evenings, Slow and easy, Family friendly, Active and outdoors).
-2. **Anchor** it: places you must visit (with minimum nights), places to avoid, consecutive beach nights, full beach days, fixed events with an arrival buffer, protected rest. Lock any stay's dates or place and any journey's times.
-3. **Generate** a plan inside the bundled region (*Thailand & the Malay Peninsula*, 15 real places). You get stops, nights, journeys with planning-estimate durations, activities on free days, reasons, open questions and alternative routes.
-4. **Inspect** it in Stays, Days, Travel, Budget and Evidence views, with checks that are *met*, *broken* or *unresolved*.
-5. **Revise**: resize, reorder, replace or remove stops, edit journeys with time-zone-aware times, add activities, budget lines, your own exchange rates, evidence and booking records.
-6. **Add your own places**: anywhere outside the catalogue, with a name, time zone and tags. Use them in stays, journeys, activities and commitments. The app says plainly that it has no routes, activities or season notes for them, and a new plan keeps their stays on the dates you chose.
-7. **Surprise me**: up to three optional extras, including short day trips, each on a day that still has free time. Never on protected rest or a recovery morning. Same preview as every other change.
-8. **Keep** it: saved locally with every revision. Export a private backup (JSON), import it again, print a clean itinerary, or export a **shareable copy** that always leaves out traveller details, booking references, private notes and history. You can also leave out exact dates, accommodation and costs.
-
-## How the planning engine works
-
-In short: commitments become pins and minimums. A beam search explores place orders over a graph of documented connections. A dynamic programme allocates every night exactly, honouring pins, consecutive-night runs and full-day counts. Diminishing returns per night, a variety bonus and penalties for moves, transfer time and airport detours produce one explained recommendation. The full write-up, with every constant, is in **[docs/ALGORITHM.md](docs/ALGORITHM.md)**.
-
-## Date, time and money rules
-
-- A stay is a check-in date and an exclusive check-out date in the destination's calendar. Nights are date differences, so stays across a clock change still count as one night per date.
-- Seven consecutive beach nights and seven full beach days are different. Full days exclude arrival, departure and transfer days.
-- Journeys use zoned times. A time that happens twice when clocks go back must be disambiguated; a time that never happens is rejected.
-- The home deadline is about arriving home after the final transfer buffer, not about when the last flight leaves.
-- Money is stored in integer minor units with an explicit currency and price basis (per room-night, per person, per booking…). Multipliers apply once. Ranges are kept. Different currencies are never added together unless you enter a rate.
-
-## Data, privacy and storage
-
-- Trips live in your browser's IndexedDB. Browsers can clear storage, so export a backup of anything important. The app warns you if storage is unavailable.
-- Every accepted change is saved atomically together with its undo history. If two tabs edit the same trip, the older change gets a conflict instead of overwriting the newer one.
-- Nothing is uploaded, shared or published by the app. "Share a copy" creates a file on your device.
-- Imports are size-limited and fully validated before anything is written. Only `http(s)` links are kept, and text is never rendered as HTML.
-
-See [SECURITY.md](SECURITY.md) for the full list of data boundaries.
+See [SECURITY.md](SECURITY.md) for the full data boundaries.
 
 ## Coverage and limitations
 
-- Automatic planning covers the **Thailand & the Malay Peninsula** pack: Bangkok, Ayutthaya, Chiang Mai, Ko Samui, Ko Pha-ngan, Ko Tao, Khao Sok, Phuket, Krabi (Ao Nang), Railay, Ko Lanta, Kuala Lumpur, George Town, Langkawi and Singapore. Elsewhere you can plan by hand, with all checks, budget and export features.
-- Travel durations are planning estimates from documented routes, checked on 31 October 2026. There are no timetables, fares or live availability, and no booking.
-- No maps. The day and stay views are lists by design. A geographic map would need sourced coordinates and licensed tiles.
-- Season notes are approximate guidance, not forecasts.
-- There is no AI chat in this release. The command pipeline already validates untrusted proposals, so a future model can only *suggest* changes through the same preview.
+- Automatic planning covers the *Thailand & the Malay Peninsula* pack: Bangkok, Ayutthaya, Chiang Mai, Ko Samui, Ko Pha-ngan, Ko Tao, Khao Sok, Phuket, Krabi (Ao Nang), Railay, Ko Lanta, Kuala Lumpur, George Town, Langkawi and Singapore. Sources were checked on 31 October 2026. Anywhere else, add your own places and plan by hand with all checks, budget and export features.
+- No timetables, fares, live availability or booking. No maps. Season notes are approximate guidance.
 
-## Project layout
+## Roadmap
 
-```text
-src/
-  domain/       Schemas (Zod), dates (Temporal), money, constraints, commands, evidence
-  planner/      Route graph, scoring, beam search, night allocation, surprises
-  application/  Preview/apply pipeline, undo/redo history, import/export, share builder
-  storage/      Dexie (IndexedDB) repository with atomic transactions
-  catalogue/    Destination pack schema and the bundled real-world pack
-  fixtures/     The fictional demo trip
-  features/     React screens: home, setup, workspace views
-  ui/           Small accessible components and styles
-tests/          Vitest (domain, planner, application, catalogue) and Playwright (e2e)
-docs/           Algorithm, architecture, data packs, acceptance mapping, release checklist
-```
-
-More: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) · [docs/DATA_PACKS.md](docs/DATA_PACKS.md) · [docs/ACCEPTANCE.md](docs/ACCEPTANCE.md)
+- More destination packs (contributions welcome, see [docs/DATA_PACKS.md](docs/DATA_PACKS.md))
+- Publish the `anchorline` package to npm, and an optional hosted demo
+- An optional server-side adapter for dated timetables and quotes, still entering through the preview pipeline as untrusted input
+- Multi-region trips across packs
 
 ## Contributing
 
-Bug fixes, new presets and new destination packs are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md). Please never include anyone's real itinerary, booking references or contact details in issues, fixtures or screenshots.
+Bug fixes, presets and destination packs are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) and the [code of conduct](CODE_OF_CONDUCT.md). Please never include anyone's real itinerary, booking references or contact details in issues, fixtures or screenshots.
+
+```bash
+npm ci && npm run check && npm run test:e2e
+```
 
 ## License
 
-Code and documentation: [MIT](LICENSE). Data and dependency notices: [NOTICE.md](NOTICE.md).
+[MIT](LICENSE). Data, dependency and font notices are in [NOTICE.md](NOTICE.md); the brand guide is in [docs/brand](docs/brand/README.md).
