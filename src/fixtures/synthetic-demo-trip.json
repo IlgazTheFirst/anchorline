@@ -1,0 +1,750 @@
+{
+  "schemaVersion": 1,
+  "id": "synthetic_mix_trip",
+  "revision": 1,
+  "title": "Fictional mix of cities, coast and a festival",
+  "isSynthetic": true,
+  "homePlaceId": "home",
+  "departureDate": "2030-06-10",
+  "window": {
+    "firstNight": "2030-06-11",
+    "leaveDate": "2030-07-01",
+    "arrivalGatewayId": null,
+    "departureGatewayId": null
+  },
+  "travellers": {
+    "count": 2,
+    "rooms": 1
+  },
+  "budget": {
+    "baseCurrency": "GBP",
+    "targetAmountMinor": 700000,
+    "basis": "whole_group",
+    "fx": []
+  },
+  "profile": {
+    "presetId": "a_bit_of_everything",
+    "weights": {
+      "food": 2,
+      "nightlife": 2,
+      "beach": 2,
+      "culture": 2,
+      "nature": 2,
+      "adventure": 1,
+      "city": 2,
+      "relax": 2
+    },
+    "pace": "balanced",
+    "protectRecoveryTime": true,
+    "alcoholPreference": "unspecified",
+    "familyFriendly": false,
+    "accessibility": {
+      "stepFreeNeeded": false
+    }
+  },
+  "places": [
+    {
+      "id": "home",
+      "name": "Home City",
+      "timeZone": "Europe/London",
+      "tags": [
+        "home"
+      ],
+      "dataKind": "synthetic",
+      "catalogueId": null,
+      "country": null,
+      "coordinates": null
+    },
+    {
+      "id": "lantern",
+      "name": "Lantern Bay",
+      "timeZone": "Asia/Bangkok",
+      "tags": [
+        "beach",
+        "social"
+      ],
+      "dataKind": "synthetic",
+      "catalogueId": null,
+      "country": null,
+      "coordinates": null
+    },
+    {
+      "id": "market",
+      "name": "Market City",
+      "timeZone": "Asia/Bangkok",
+      "tags": [
+        "city",
+        "food",
+        "culture"
+      ],
+      "dataKind": "synthetic",
+      "catalogueId": null,
+      "country": null,
+      "coordinates": null
+    },
+    {
+      "id": "harbour",
+      "name": "Harbour City",
+      "timeZone": "Asia/Singapore",
+      "tags": [
+        "city",
+        "food",
+        "nightlife"
+      ],
+      "dataKind": "synthetic",
+      "catalogueId": null,
+      "country": null,
+      "coordinates": null
+    },
+    {
+      "id": "garden",
+      "name": "Garden City",
+      "timeZone": "Asia/Taipei",
+      "tags": [
+        "city",
+        "culture",
+        "food"
+      ],
+      "dataKind": "synthetic",
+      "catalogueId": null,
+      "country": null,
+      "coordinates": null
+    },
+    {
+      "id": "palm",
+      "name": "Palm Coast",
+      "timeZone": "Asia/Bangkok",
+      "tags": [
+        "beach",
+        "nature"
+      ],
+      "dataKind": "synthetic",
+      "catalogueId": null,
+      "country": null,
+      "coordinates": null
+    },
+    {
+      "id": "cliff",
+      "name": "Cliff Cove",
+      "timeZone": "Asia/Bangkok",
+      "tags": [
+        "beach",
+        "light_adventure"
+      ],
+      "dataKind": "synthetic",
+      "catalogueId": null,
+      "country": null,
+      "coordinates": null
+    },
+    {
+      "id": "skyline",
+      "name": "Skyline City",
+      "timeZone": "Asia/Hong_Kong",
+      "tags": [
+        "city",
+        "food"
+      ],
+      "dataKind": "synthetic",
+      "catalogueId": null,
+      "country": null,
+      "coordinates": null
+    }
+  ],
+  "stays": [
+    {
+      "id": "stay_lantern",
+      "placeId": "lantern",
+      "checkIn": "2030-06-11",
+      "checkOutExclusive": "2030-06-15",
+      "purposeTags": [
+        "beach",
+        "social"
+      ],
+      "lockedFields": [],
+      "accommodation": null,
+      "reason": "Fictional demonstration stop."
+    },
+    {
+      "id": "stay_market",
+      "placeId": "market",
+      "checkIn": "2030-06-15",
+      "checkOutExclusive": "2030-06-18",
+      "purposeTags": [
+        "city",
+        "food"
+      ],
+      "lockedFields": [],
+      "accommodation": null,
+      "reason": "Fictional demonstration stop."
+    },
+    {
+      "id": "stay_harbour",
+      "placeId": "harbour",
+      "checkIn": "2030-06-18",
+      "checkOutExclusive": "2030-06-23",
+      "purposeTags": [
+        "city",
+        "food",
+        "nightlife"
+      ],
+      "lockedFields": [],
+      "accommodation": null,
+      "reason": "Fictional demonstration stop."
+    },
+    {
+      "id": "stay_palm",
+      "placeId": "palm",
+      "checkIn": "2030-06-23",
+      "checkOutExclusive": "2030-06-27",
+      "purposeTags": [
+        "beach"
+      ],
+      "lockedFields": [],
+      "accommodation": null,
+      "reason": "Fictional demonstration stop."
+    },
+    {
+      "id": "stay_cliff",
+      "placeId": "cliff",
+      "checkIn": "2030-06-27",
+      "checkOutExclusive": "2030-06-30",
+      "purposeTags": [
+        "beach"
+      ],
+      "lockedFields": [],
+      "accommodation": null,
+      "reason": "Fictional demonstration stop."
+    },
+    {
+      "id": "stay_skyline",
+      "placeId": "skyline",
+      "checkIn": "2030-06-30",
+      "checkOutExclusive": "2030-07-01",
+      "purposeTags": [
+        "city"
+      ],
+      "lockedFields": [],
+      "accommodation": null,
+      "reason": "Fictional demonstration stop."
+    }
+  ],
+  "travelLegs": [
+    {
+      "id": "leg_outbound",
+      "fromPlaceId": "home",
+      "toPlaceId": "lantern",
+      "mode": "flight",
+      "departure": {
+        "localDateTime": "2030-06-10T20:00",
+        "timeZone": "Europe/London"
+      },
+      "arrival": {
+        "localDateTime": "2030-06-11T14:00",
+        "timeZone": "Asia/Bangkok"
+      },
+      "durationRangeMinutes": null,
+      "preDepartureBufferMinutes": 120,
+      "postArrivalBufferMinutes": 60,
+      "timingStatus": "synthetic_planning_assumption",
+      "identifiers": null,
+      "evidenceIds": [
+        "claim_outbound"
+      ],
+      "lockedFields": [],
+      "note": null
+    },
+    {
+      "id": "leg_lantern_market",
+      "fromPlaceId": "lantern",
+      "toPlaceId": "market",
+      "mode": "ferry and rail",
+      "departure": {
+        "localDateTime": "2030-06-15T09:00",
+        "timeZone": "Asia/Bangkok"
+      },
+      "arrival": {
+        "localDateTime": "2030-06-15T14:00",
+        "timeZone": "Asia/Bangkok"
+      },
+      "durationRangeMinutes": null,
+      "preDepartureBufferMinutes": 60,
+      "postArrivalBufferMinutes": 45,
+      "timingStatus": "synthetic_planning_assumption",
+      "identifiers": null,
+      "evidenceIds": [
+        "claim_lantern_market"
+      ],
+      "lockedFields": [],
+      "note": null
+    },
+    {
+      "id": "leg_market_harbour",
+      "fromPlaceId": "market",
+      "toPlaceId": "harbour",
+      "mode": "flight",
+      "departure": {
+        "localDateTime": "2030-06-18T11:00",
+        "timeZone": "Asia/Bangkok"
+      },
+      "arrival": {
+        "localDateTime": "2030-06-18T15:00",
+        "timeZone": "Asia/Singapore"
+      },
+      "durationRangeMinutes": null,
+      "preDepartureBufferMinutes": 120,
+      "postArrivalBufferMinutes": 60,
+      "timingStatus": "synthetic_planning_assumption",
+      "identifiers": null,
+      "evidenceIds": [
+        "claim_market_harbour"
+      ],
+      "lockedFields": [],
+      "note": null
+    },
+    {
+      "id": "leg_harbour_palm",
+      "fromPlaceId": "harbour",
+      "toPlaceId": "palm",
+      "mode": "flight",
+      "departure": {
+        "localDateTime": "2030-06-23T10:00",
+        "timeZone": "Asia/Singapore"
+      },
+      "arrival": {
+        "localDateTime": "2030-06-23T11:00",
+        "timeZone": "Asia/Bangkok"
+      },
+      "durationRangeMinutes": null,
+      "preDepartureBufferMinutes": 120,
+      "postArrivalBufferMinutes": 180,
+      "timingStatus": "synthetic_planning_assumption",
+      "identifiers": null,
+      "evidenceIds": [
+        "claim_harbour_palm"
+      ],
+      "lockedFields": [],
+      "note": null
+    },
+    {
+      "id": "leg_palm_cliff",
+      "fromPlaceId": "palm",
+      "toPlaceId": "cliff",
+      "mode": "road and boat",
+      "departure": {
+        "localDateTime": "2030-06-27T10:00",
+        "timeZone": "Asia/Bangkok"
+      },
+      "arrival": {
+        "localDateTime": "2030-06-27T14:00",
+        "timeZone": "Asia/Bangkok"
+      },
+      "durationRangeMinutes": null,
+      "preDepartureBufferMinutes": 30,
+      "postArrivalBufferMinutes": 30,
+      "timingStatus": "synthetic_planning_assumption",
+      "identifiers": null,
+      "evidenceIds": [
+        "claim_palm_cliff"
+      ],
+      "lockedFields": [],
+      "note": null
+    },
+    {
+      "id": "leg_cliff_skyline",
+      "fromPlaceId": "cliff",
+      "toPlaceId": "skyline",
+      "mode": "flight with connection",
+      "departure": {
+        "localDateTime": "2030-06-30T09:00",
+        "timeZone": "Asia/Bangkok"
+      },
+      "arrival": {
+        "localDateTime": "2030-06-30T17:00",
+        "timeZone": "Asia/Hong_Kong"
+      },
+      "durationRangeMinutes": null,
+      "preDepartureBufferMinutes": 210,
+      "postArrivalBufferMinutes": 60,
+      "timingStatus": "synthetic_planning_assumption",
+      "identifiers": null,
+      "evidenceIds": [
+        "claim_cliff_skyline"
+      ],
+      "lockedFields": [],
+      "note": null
+    },
+    {
+      "id": "leg_return",
+      "fromPlaceId": "skyline",
+      "toPlaceId": "home",
+      "mode": "flight",
+      "departure": {
+        "localDateTime": "2030-07-01T13:00",
+        "timeZone": "Asia/Hong_Kong"
+      },
+      "arrival": {
+        "localDateTime": "2030-07-01T21:00",
+        "timeZone": "Europe/London"
+      },
+      "durationRangeMinutes": null,
+      "preDepartureBufferMinutes": 120,
+      "postArrivalBufferMinutes": 60,
+      "timingStatus": "synthetic_planning_assumption",
+      "identifiers": null,
+      "evidenceIds": [
+        "claim_return"
+      ],
+      "lockedFields": [],
+      "note": null
+    }
+  ],
+  "activities": [
+    {
+      "id": "activity_lantern_night",
+      "placeId": "lantern",
+      "title": "Lantern Night — fictional event",
+      "start": {
+        "localDateTime": "2030-06-13T20:00",
+        "timeZone": "Asia/Bangkok"
+      },
+      "end": {
+        "localDateTime": "2030-06-14T02:00",
+        "timeZone": "Asia/Bangkok"
+      },
+      "date": "2030-06-13",
+      "partOfDay": null,
+      "durationMinutes": null,
+      "tags": [
+        "social",
+        "nightlife"
+      ],
+      "lockedFields": [
+        "placeId",
+        "start",
+        "end"
+      ],
+      "dataKind": "synthetic",
+      "catalogueActivityId": null,
+      "evidenceIds": [],
+      "note": null
+    },
+    {
+      "id": "activity_food_walk",
+      "placeId": "market",
+      "title": "Evening food walk — fictional",
+      "start": {
+        "localDateTime": "2030-06-16T18:00",
+        "timeZone": "Asia/Bangkok"
+      },
+      "end": {
+        "localDateTime": "2030-06-16T20:00",
+        "timeZone": "Asia/Bangkok"
+      },
+      "date": "2030-06-16",
+      "partOfDay": null,
+      "durationMinutes": null,
+      "tags": [
+        "food"
+      ],
+      "lockedFields": [],
+      "dataKind": "synthetic",
+      "catalogueActivityId": null,
+      "evidenceIds": [],
+      "note": null
+    },
+    {
+      "id": "activity_snorkel",
+      "placeId": "palm",
+      "title": "Reef outing — fictional",
+      "start": {
+        "localDateTime": "2030-06-25T09:00",
+        "timeZone": "Asia/Bangkok"
+      },
+      "end": {
+        "localDateTime": "2030-06-25T14:00",
+        "timeZone": "Asia/Bangkok"
+      },
+      "date": "2030-06-25",
+      "partOfDay": null,
+      "durationMinutes": null,
+      "tags": [
+        "nature",
+        "light_adventure"
+      ],
+      "lockedFields": [],
+      "dataKind": "synthetic",
+      "catalogueActivityId": null,
+      "evidenceIds": [],
+      "note": null
+    },
+    {
+      "id": "activity_kayak",
+      "placeId": "cliff",
+      "title": "Cove kayaking — fictional",
+      "start": {
+        "localDateTime": "2030-06-28T10:00",
+        "timeZone": "Asia/Bangkok"
+      },
+      "end": {
+        "localDateTime": "2030-06-28T12:00",
+        "timeZone": "Asia/Bangkok"
+      },
+      "date": "2030-06-28",
+      "partOfDay": null,
+      "durationMinutes": null,
+      "tags": [
+        "light_adventure"
+      ],
+      "lockedFields": [],
+      "dataKind": "synthetic",
+      "catalogueActivityId": null,
+      "evidenceIds": [],
+      "note": null
+    },
+    {
+      "id": "activity_skyline_dinner",
+      "placeId": "skyline",
+      "title": "Skyline dinner — fictional",
+      "start": {
+        "localDateTime": "2030-06-30T19:30",
+        "timeZone": "Asia/Hong_Kong"
+      },
+      "end": {
+        "localDateTime": "2030-06-30T21:00",
+        "timeZone": "Asia/Hong_Kong"
+      },
+      "date": "2030-06-30",
+      "partOfDay": null,
+      "durationMinutes": null,
+      "tags": [
+        "food"
+      ],
+      "lockedFields": [],
+      "dataKind": "synthetic",
+      "catalogueActivityId": null,
+      "evidenceIds": [],
+      "note": null
+    }
+  ],
+  "anchors": [
+    {
+      "id": "anchor_event",
+      "kind": "fixed_event",
+      "strength": "hard",
+      "activityId": "activity_lantern_night",
+      "arrivalBufferMinutes": 180,
+      "label": "Be at Lantern Night (fictional)"
+    },
+    {
+      "id": "anchor_beach",
+      "kind": "minimum_consecutive_nights",
+      "strength": "hard",
+      "qualifyingTag": "beach",
+      "minimumNights": 7,
+      "label": "Seven consecutive beach nights"
+    },
+    {
+      "id": "anchor_home",
+      "kind": "arrival_deadline",
+      "strength": "hard",
+      "placeId": "home",
+      "deadline": {
+        "localDateTime": "2030-07-01T23:00",
+        "timeZone": "Europe/London"
+      },
+      "endpoint": "home city after final arrival transfer",
+      "includePostArrivalBuffer": true,
+      "label": "Home by 1 July 23:00, after the final transfer"
+    },
+    {
+      "id": "anchor_recovery",
+      "kind": "protected_rest",
+      "strength": "hard",
+      "placeId": "lantern",
+      "start": {
+        "localDateTime": "2030-06-14T02:00",
+        "timeZone": "Asia/Bangkok"
+      },
+      "end": {
+        "localDateTime": "2030-06-14T12:00",
+        "timeZone": "Asia/Bangkok"
+      },
+      "label": "Recovery morning after Lantern Night"
+    }
+  ],
+  "claims": [
+    {
+      "id": "claim_outbound",
+      "subjectId": "leg_outbound",
+      "kind": "route_timing",
+      "evidenceStatus": "synthetic",
+      "sourceUrl": null,
+      "checkedAt": null,
+      "dataKind": "synthetic",
+      "dependsOn": {
+        "fromPlaceId": "home",
+        "toPlaceId": "lantern",
+        "departureLocalDate": "2030-06-10",
+        "travellerCount": 2
+      },
+      "note": "Invented timing for software tests. No operator, real timetable, fare or availability is asserted."
+    },
+    {
+      "id": "claim_lantern_market",
+      "subjectId": "leg_lantern_market",
+      "kind": "route_timing",
+      "evidenceStatus": "synthetic",
+      "sourceUrl": null,
+      "checkedAt": null,
+      "dataKind": "synthetic",
+      "dependsOn": {
+        "fromPlaceId": "lantern",
+        "toPlaceId": "market",
+        "departureLocalDate": "2030-06-15",
+        "travellerCount": 2
+      },
+      "note": "Invented timing for software tests. No operator, real timetable, fare or availability is asserted."
+    },
+    {
+      "id": "claim_market_harbour",
+      "subjectId": "leg_market_harbour",
+      "kind": "route_timing",
+      "evidenceStatus": "synthetic",
+      "sourceUrl": null,
+      "checkedAt": null,
+      "dataKind": "synthetic",
+      "dependsOn": {
+        "fromPlaceId": "market",
+        "toPlaceId": "harbour",
+        "departureLocalDate": "2030-06-18",
+        "travellerCount": 2
+      },
+      "note": "Invented timing for software tests. No operator, real timetable, fare or availability is asserted."
+    },
+    {
+      "id": "claim_harbour_palm",
+      "subjectId": "leg_harbour_palm",
+      "kind": "route_timing",
+      "evidenceStatus": "synthetic",
+      "sourceUrl": null,
+      "checkedAt": null,
+      "dataKind": "synthetic",
+      "dependsOn": {
+        "fromPlaceId": "harbour",
+        "toPlaceId": "palm",
+        "departureLocalDate": "2030-06-23",
+        "travellerCount": 2
+      },
+      "note": "Invented timing for software tests. No operator, real timetable, fare or availability is asserted."
+    },
+    {
+      "id": "claim_palm_cliff",
+      "subjectId": "leg_palm_cliff",
+      "kind": "route_timing",
+      "evidenceStatus": "synthetic",
+      "sourceUrl": null,
+      "checkedAt": null,
+      "dataKind": "synthetic",
+      "dependsOn": {
+        "fromPlaceId": "palm",
+        "toPlaceId": "cliff",
+        "departureLocalDate": "2030-06-27",
+        "travellerCount": 2
+      },
+      "note": "Invented timing for software tests. No operator, real timetable, fare or availability is asserted."
+    },
+    {
+      "id": "claim_cliff_skyline",
+      "subjectId": "leg_cliff_skyline",
+      "kind": "route_timing",
+      "evidenceStatus": "synthetic",
+      "sourceUrl": null,
+      "checkedAt": null,
+      "dataKind": "synthetic",
+      "dependsOn": {
+        "fromPlaceId": "cliff",
+        "toPlaceId": "skyline",
+        "departureLocalDate": "2030-06-30",
+        "travellerCount": 2
+      },
+      "note": "Invented timing for software tests. No operator, real timetable, fare or availability is asserted."
+    },
+    {
+      "id": "claim_return",
+      "subjectId": "leg_return",
+      "kind": "route_timing",
+      "evidenceStatus": "synthetic",
+      "sourceUrl": null,
+      "checkedAt": null,
+      "dataKind": "synthetic",
+      "dependsOn": {
+        "fromPlaceId": "skyline",
+        "toPlaceId": "home",
+        "departureLocalDate": "2030-07-01",
+        "travellerCount": 2
+      },
+      "note": "Invented timing for software tests. No operator, real timetable, fare or availability is asserted."
+    }
+  ],
+  "budgetItems": [
+    {
+      "id": "budget_palm_hotel",
+      "subjectId": "stay_palm",
+      "label": "Fictional room allowance",
+      "currency": "GBP",
+      "minorUnitDigits": 2,
+      "unitAmountMinor": 12000,
+      "unitAmountMaxMinor": null,
+      "priceBasis": "per_room_night",
+      "quantity": {
+        "rooms": 1,
+        "nights": 4
+      },
+      "status": "synthetic_allowance"
+    },
+    {
+      "id": "budget_food_walk",
+      "subjectId": "activity_food_walk",
+      "label": "Fictional food-walk allowance",
+      "currency": "GBP",
+      "minorUnitDigits": 2,
+      "unitAmountMinor": 2500,
+      "unitAmountMaxMinor": null,
+      "priceBasis": "per_person",
+      "quantity": {
+        "people": 2
+      },
+      "status": "synthetic_allowance"
+    },
+    {
+      "id": "budget_outbound",
+      "subjectId": "leg_outbound",
+      "label": "Outbound travel — unknown price",
+      "currency": "GBP",
+      "minorUnitDigits": 2,
+      "unitAmountMinor": null,
+      "unitAmountMaxMinor": null,
+      "priceBasis": "per_booking",
+      "quantity": {
+        "bookings": 1
+      },
+      "status": "unknown"
+    }
+  ],
+  "bookingMarks": [],
+  "travellerDetails": {
+    "names": [],
+    "contacts": []
+  },
+  "privateNotes": [],
+  "catalogue": null,
+  "planExplanation": {
+    "summary": "A wholly fictional sample. Every place, event, timing and allowance is invented to demonstrate locks, transfers, budget gaps and change previews.",
+    "reasons": [],
+    "unresolved": [
+      "All transport is fictional; real-world service operation and availability are unverified.",
+      "Most costs have no estimate.",
+      "No accommodation or transport is booked."
+    ]
+  }
+}
