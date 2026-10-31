@@ -3,6 +3,7 @@ import {
   addDays,
   compareDates,
   dateInZone,
+  dayOfWeek,
   formatDate,
   formatLocal,
   formatMinutes,
@@ -345,6 +346,15 @@ function structuralChecks(doc: TripDocument): ConstraintResult[] {
     const there = doc.stays.some((st) => st.placeId === a.placeId && compareDates(st.checkIn, date) <= 0 && compareDates(date, st.checkOutExclusive) <= 0);
     if (!there && doc.stays.length) {
       out.push(s(`activity-place:${a.id}`, a.title, 'unresolved', `${a.title} is on ${formatDate(date)}, when the plan has you somewhere other than ${nameOf(a.placeId)}.`, [a.id], ['Move the activity or the stay.']));
+    }
+  }
+  const DAY_NAMES = ['Mondays', 'Tuesdays', 'Wednesdays', 'Thursdays', 'Fridays', 'Saturdays', 'Sundays'];
+  for (const a of doc.activities) {
+    const date = activityDate(a);
+    if (!date || !a.daysOfWeek?.length) continue;
+    const dow = dayOfWeek(date);
+    if (!a.daysOfWeek.includes(dow)) {
+      out.push(s(`weekday:${a.id}`, a.title, 'unresolved', `${a.title} usually runs on ${a.daysOfWeek.map((d) => DAY_NAMES[d - 1]).join(' and ')}, but it is now planned for ${formatDate(date)}.`, [a.id], ['Move it to a matching day, or check the current schedule.']));
     }
   }
   for (const mark of doc.bookingMarks) {

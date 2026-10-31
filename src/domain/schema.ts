@@ -100,6 +100,8 @@ export const activity = z.object({
   date: plainDate.nullable().optional(),
   partOfDay: partOfDay.nullable().optional(),
   durationMinutes: z.object({ min: z.number().int().min(0), max: z.number().int().min(0) }).nullable().optional(),
+  /** ISO weekdays (1 = Monday) the source says it runs on, when it only runs on some days. */
+  daysOfWeek: z.array(z.number().int().min(1).max(7)).max(7).nullable().optional(),
   tags,
   lockedFields: z.array(z.enum(['placeId', 'start', 'end', 'date'])).max(4),
   dataKind,

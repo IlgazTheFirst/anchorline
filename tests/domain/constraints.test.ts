@@ -80,3 +80,14 @@ describe('constraints on the fictional demo', () => {
     expect(move.status).toBe('rejected');
   });
 });
+
+describe('weekday-only activities', () => {
+  it('flags, without blocking, an activity moved off the days its source gives', () => {
+    const doc = demoTrip();
+    doc.activities.find((a) => a.id === 'activity_food_walk')!.daysOfWeek = [7];
+    const p = preview(doc, [{ type: 'UpdateActivity', activityId: 'activity_food_walk', patch: { date: '2030-06-17', start: null, end: null } }]);
+    expect(p.canApply).toBe(true);
+    const flag = p.newlyUnresolved.find((r) => r.id === 'weekday:activity_food_walk');
+    expect(flag?.explanation).toContain('usually runs on Sundays');
+  });
+});

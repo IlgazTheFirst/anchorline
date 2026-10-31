@@ -203,10 +203,33 @@ export function dayCards(doc: TripDocument): DayCard[] {
     const activities = doc.activities.filter((a) => activityDate(a) === date);
     const isTransferDay = transfers.has(date) || (morningStay?.placeId !== nightStay?.placeId);
     const isFullDay = Boolean(nightStay && morningStay && nightStay.id === morningStay.id && !isTransferDay);
-    const used = new Set(activities.map((a) => a.partOfDay ?? partOfDayFromStart(a)).filter(Boolean));
-    const freeParts = isFullDay ? PARTS.filter((p) => !used.has(p)) : [];
+    const used = new Set(activities.map((a) => (a.partOfDay === 'night' ? 'evening' : (a.partOfDay ?? partOfDayFromStart(a)))).filter(Boolean));
+    const fillsDay = activities.some((a) => a.partOfDay === 'any' || (a.durationMinutes?.min ?? 0) >= 6 * 60);
+    const freeParts = isFullDay && !fillsDay ? PARTS.filter((p) => !used.has(p)) : [];
     return { date, placeIds, stayId: nightStay?.id ?? null, isTransferDay, isFullDay, legs, activities, freeParts };
   });
+}
+
+/**
+ * Mornings kept free after a late night, when the traveller protects
+ * recovery time: the morning after a night-time activity, or after any
+ * timed activity that ends at 22:00 or later or crosses midnight.
+ */
+export function recoveryMornings(doc: Pick<TripDocument, 'activities' | 'profile'>): Set<string> {
+  const out = new Set<string>();
+  if (!doc.profile.protectRecoveryTime) return out;
+  for (const a of doc.activities) {
+    if (a.end) {
+      const endDate = localDateOf(a.end);
+      const startDate = a.start ? localDateOf(a.start) : endDate;
+      const hour = Number(a.end.localDateTime.slice(11, 13));
+      if (endDate !== startDate) out.add(endDate);
+      else if (hour >= 22) out.add(addDays(endDate, 1));
+      continue;
+    }
+    if (a.date && a.partOfDay === 'night') out.add(addDays(a.date, 1));
+  }
+  return out;
 }
 
 function partOfDayFromStart(activity: Activity): string | null {

@@ -22,8 +22,8 @@ export const PRESETS: Preset[] = [
   {
     id: 'a_bit_of_everything',
     name: 'A bit of everything',
-    description: 'Good food, lively evenings, city exploring, real beach time, a little adventure and room to rest.',
-    profile: { presetId: 'a_bit_of_everything', weights: { food: 3, nightlife: 2, beach: 2, culture: 2, nature: 2, adventure: 2, city: 2, relax: 2 }, pace: 'balanced', ...base },
+    description: 'Good food, city exploring and culture, social evenings, proper beach time, a little adventure and enough downtime.',
+    profile: { presetId: 'a_bit_of_everything', weights: { food: 3, nightlife: 2, beach: 3, culture: 2, nature: 2, adventure: 1, city: 2, relax: 2 }, pace: 'balanced', ...base },
   },
   {
     id: 'quiet_evenings',
