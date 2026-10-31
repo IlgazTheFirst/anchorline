@@ -13,6 +13,11 @@ describe('A13: import and export', () => {
     if (r.ok) expect(r.doc).toEqual(doc);
   });
 
+  it('still reads backups written under the old name', () => {
+    const legacy = JSON.stringify({ format: 'holiday-planner/trip', formatVersion: 1, document: demoTrip() });
+    expect(parseImport(legacy, new Set()).ok).toBe(true);
+  });
+
   it('imports a copy when the id already exists', () => {
     const doc = demoTrip();
     const r = parseImport(exportBackup(doc, null), new Set([doc.id]));
@@ -22,7 +27,7 @@ describe('A13: import and export', () => {
   const bad = (mutate: (d: Record<string, unknown>) => void) => {
     const d = JSON.parse(JSON.stringify(demoTrip())) as Record<string, unknown>;
     mutate(d);
-    return parseImport(JSON.stringify({ format: 'holiday-planner/trip', formatVersion: 1, document: d }), new Set());
+    return parseImport(JSON.stringify({ format: 'anchorline/trip', formatVersion: 1, document: d }), new Set());
   };
 
   it('rejects malformed JSON, oversized files, unsupported versions, big arrays, bad references and invalid dates', () => {

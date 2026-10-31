@@ -1,6 +1,6 @@
 # Code of conduct
 
-Holiday Planner is a small community project. We want it to be a friendly place to contribute.
+Anchorline is a small community project. We want it to be a friendly place to contribute.
 
 ## Expected behaviour
 

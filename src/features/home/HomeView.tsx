@@ -5,7 +5,7 @@ import { DEFAULT_PACK } from '../../catalogue';
 import { formatDate } from '../../domain/dates';
 import { demoTrip } from '../../fixtures';
 import { navigate } from '../../ui/navigation';
-import { Badge, LiveRegion, Logo } from '../../ui/components';
+import { Badge, Brand, LiveRegion } from '../../ui/components';
 
 export function HomeView({ repo }: { repo: TripRepository }) {
   const [trips, setTrips] = useState<TripSummary[] | null>(null);
@@ -71,13 +71,11 @@ export function HomeView({ repo }: { repo: TripRepository }) {
   return (
     <>
       <header className="app-header">
-        <a className="brand" href="#/">
-          <Logo /> Holiday Planner
-        </a>
+        <Brand />
       </header>
       <main id="main" className="page">
         <LiveRegion message={message} />
-        <h1>Plan a holiday around what is fixed</h1>
+        <h1>Plan around what can't move</h1>
         <p className="muted" style={{ maxWidth: '46rem' }}>
           Start with your dates and commitments. The planner suggests one route with its reasons, shows what every change would do before it happens, and keeps
           everything in this browser. No account, no tracking, no paid services.

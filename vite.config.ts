@@ -11,7 +11,7 @@ import react from '@vitejs/plugin-react';
  */
 function precacheServiceWorker(): Plugin {
   return {
-    name: 'holiday-planner-precache-sw',
+    name: 'anchorline-precache-sw',
     apply: 'build',
     generateBundle(_options, bundle) {
       const publicFiles = readdirSync(new URL('./public', import.meta.url)).filter((f) => !f.startsWith('.'));
@@ -19,7 +19,7 @@ function precacheServiceWorker(): Plugin {
       const unique = [...new Set(files)].filter((f) => f !== './sw.js' && !f.endsWith('.map')).sort();
       const version = createHash('sha256').update(unique.join('\n')).digest('hex').slice(0, 12);
       const source = `/* Generated at build time. Precaches the app shell for offline reloads. */
-const CACHE = 'holiday-planner-${version}';
+const CACHE = 'anchorline-${version}';
 const PRECACHE = ${JSON.stringify(unique)};
 self.addEventListener('install', (event) => {
   event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(PRECACHE)).then(() => self.skipWaiting()));
@@ -27,7 +27,7 @@ self.addEventListener('install', (event) => {
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys()
-      .then((keys) => Promise.all(keys.filter((k) => k.startsWith('holiday-planner-') && k !== CACHE).map((k) => caches.delete(k))))
+      .then((keys) => Promise.all(keys.filter((k) => (k.startsWith('anchorline-') || k.startsWith('holiday-planner-')) && k !== CACHE).map((k) => caches.delete(k))))
       .then(() => self.clients.claim()),
   );
 });

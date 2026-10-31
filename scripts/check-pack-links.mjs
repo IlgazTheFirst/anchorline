@@ -18,7 +18,7 @@ for (const file of readdirSync(dir).filter((f) => f.endsWith('.json'))) walk(JSO
 let failed = 0;
 for (const url of [...urls].sort()) {
   try {
-    const res = await fetch(url, { redirect: 'follow', headers: { 'user-agent': 'holiday-planner-linkcheck/0.1' } });
+    const res = await fetch(url, { redirect: 'follow', headers: { 'user-agent': 'anchorline-linkcheck/0.1' } });
     if (!res.ok) {
       failed++;
       console.log(`${res.status} ${url}`);

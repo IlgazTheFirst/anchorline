@@ -1,4 +1,7 @@
-# Holiday Planner
+# Anchorline
+
+**Plan around what can't move.**
+
 
 An open-source, offline-first holiday planner with an explainable planning engine. Start with your dates, travellers, interests and anything that is fixed. It recommends one route with its reasons, shows exactly what every change would do before it happens, and keeps everything in your own browser.
 

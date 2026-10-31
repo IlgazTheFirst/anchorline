@@ -77,6 +77,20 @@ export function LiveRegion({ message }: { message: string }) {
   );
 }
 
+/** App name with its plain descriptor, used in every header. */
+export function Brand({ compact = false }: { compact?: boolean }) {
+  return (
+    <a className="brand" href="#/" aria-label="Anchorline holiday planner, all trips">
+      <Logo />
+      {!compact && (
+        <span>
+          Anchorline <span className="brand-sub">holiday planner</span>
+        </span>
+      )}
+    </a>
+  );
+}
+
 export function Logo() {
   return (
     <svg viewBox="0 0 64 64" aria-hidden="true">

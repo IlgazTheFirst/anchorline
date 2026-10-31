@@ -26,7 +26,7 @@ export class HolidayDatabase extends Dexie {
   trips!: Table<StoredTrip, string>;
   history!: Table<StoredHistory, string>;
 
-  constructor(name = 'holiday-planner') {
+  constructor(name = 'anchorline') {
     super(name);
     // Version 1. Add new versions with .upgrade() migrations; never edit this one.
     this.version(1).stores({ trips: 'id, updatedAt', history: 'tripId' });

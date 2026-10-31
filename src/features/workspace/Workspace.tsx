@@ -4,7 +4,7 @@ import { exportBackup } from '../../application/transfer';
 import { evaluateConstraints } from '../../domain/constraints';
 import { formatDate, formatZoned } from '../../domain/dates';
 import { totalHotelNights } from '../../domain/derive';
-import {Badge, LiveRegion, Logo} from '../../ui/components';
+import { Badge, Brand, LiveRegion } from '../../ui/components';
 import { downloadText, slug } from '../../ui/download';
 import { useTripSession } from '../useTripSession';
 import { BudgetView } from './BudgetView';
@@ -50,9 +50,7 @@ export function Workspace({ repo, tripId, autoGenerate }: { repo: TripRepository
   return (
     <>
       <header className="app-header">
-        <a className="brand" href="#/">
-          <Logo /> <span className="sr-only">Holiday Planner, back to trips</span>
-        </a>
+        <Brand compact />
         <span className="header-title">
           {doc.title} {doc.isSynthetic && <Badge kind="open">Fictional demo</Badge>} <small className="num">revision {doc.revision}</small>
         </span>

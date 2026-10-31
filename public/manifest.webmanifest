@@ -1,6 +1,6 @@
 {
-  "name": "Holiday Planner",
-  "short_name": "Holidays",
+  "name": "Anchorline: holiday planner",
+  "short_name": "Anchorline",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#f7f3ec",

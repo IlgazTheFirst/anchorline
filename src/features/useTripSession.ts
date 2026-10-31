@@ -5,7 +5,7 @@ import type { TripRepository } from '../application/repository';
 import type { Actor, Command } from '../domain/commands';
 import type { TripDocument } from '../domain/schema';
 
-const CHANNEL = 'holiday-planner-changes';
+const CHANNEL = 'anchorline-changes';
 
 interface Session {
   doc: TripDocument | null;

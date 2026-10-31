@@ -7,7 +7,7 @@ import { PRESETS, presetById } from '../../domain/presets';
 import { INTERESTS, type Anchor, type Activity, type Place } from '../../domain/schema';
 import { parseMinor } from '../../domain/money';
 import { navigate } from '../../ui/navigation';
-import { Field, Logo } from '../../ui/components';
+import { Brand, Field } from '../../ui/components';
 import { catalogueAsPlace, CURRENCIES, timeZones } from './options';
 import { InterestControls } from '../workspace/PreferencesPanel';
 
@@ -413,9 +413,7 @@ export function SetupView({ repo }: { repo: TripRepository }) {
 function Header() {
   return (
     <header className="app-header">
-      <a className="brand" href="#/">
-        <Logo /> Holiday Planner
-      </a>
+      <Brand />
     </header>
   );
 }

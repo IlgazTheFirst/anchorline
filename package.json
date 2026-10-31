@@ -1,8 +1,8 @@
 {
-  "name": "holiday-planner",
+  "name": "anchorline",
   "private": true,
   "version": "0.1.0",
-  "description": "An offline-first holiday planner with an explainable, deterministic planning engine.",
+  "description": "Plan around what can't move. Offline-first holiday planner with an explainable engine, for the browser, the terminal, Claude and ChatGPT.",
   "license": "MIT",
   "type": "module",
   "engines": {
@@ -47,14 +47,24 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/IlgazTheFirst/holiday-planner.git"
+    "url": "git+https://github.com/IlgazTheFirst/anchorline.git"
   },
   "keywords": [
     "travel",
     "itinerary",
-    "planner",
+    "holiday-planner",
+    "trip-planner",
     "offline-first",
-    "react",
-    "typescript"
-  ]
+    "mcp",
+    "mcp-server",
+    "claude-skill",
+    "claude-code-plugin",
+    "chatgpt",
+    "ai-agents",
+    "cli"
+  ],
+  "homepage": "https://github.com/IlgazTheFirst/anchorline#readme",
+  "bugs": {
+    "url": "https://github.com/IlgazTheFirst/anchorline/issues"
+  }
 }

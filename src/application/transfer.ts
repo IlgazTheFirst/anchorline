@@ -5,8 +5,11 @@ import { sortStays } from '../domain/derive';
 import { LIMITS, SCHEMA_VERSION, safeUrl, tripDocument, type TripDocument } from '../domain/schema';
 import type { HistoryState } from './history';
 
-export const BACKUP_FORMAT = 'holiday-planner/trip';
-export const SHARE_FORMAT = 'holiday-planner/shareable';
+export const BACKUP_FORMAT = 'anchorline/trip';
+export const SHARE_FORMAT = 'anchorline/shareable';
+/** Backups written before the project was renamed. */
+const LEGACY_BACKUP_FORMATS = ['holiday-planner/trip'];
+const LEGACY_SHARE_FORMATS = ['holiday-planner/shareable'];
 
 export function exportBackup(doc: TripDocument, history: HistoryState | null, now = new Date().toISOString()): string {
   return JSON.stringify({ format: BACKUP_FORMAT, formatVersion: 1, kind: 'private_backup', exportedAt: now, document: doc, history }, null, 2);
@@ -32,11 +35,11 @@ export function parseImport(text: string, existingIds: Set<string>): ImportResul
   }
   if (!raw || typeof raw !== 'object') return { ok: false, errors: ['Expected a trip file.'] };
   const obj = raw as Record<string, unknown>;
-  if (obj.format === SHARE_FORMAT) {
+  if (obj.format === SHARE_FORMAT || LEGACY_SHARE_FORMATS.includes(String(obj.format))) {
     return { ok: false, errors: ['This is a shareable copy. It leaves out details on purpose and cannot be restored as a trip. Import a private backup instead.'] };
   }
-  const candidate = obj.format === BACKUP_FORMAT ? obj.document : 'schemaVersion' in obj ? obj : undefined;
-  if (!candidate || typeof candidate !== 'object') return { ok: false, errors: ['This file is not a Holiday Planner trip.'] };
+  const candidate = obj.format === BACKUP_FORMAT || LEGACY_BACKUP_FORMATS.includes(String(obj.format)) ? obj.document : 'schemaVersion' in obj ? obj : undefined;
+  if (!candidate || typeof candidate !== 'object') return { ok: false, errors: ['This file is not an Anchorline trip.'] };
   const version = (candidate as Record<string, unknown>).schemaVersion;
   if (version !== SCHEMA_VERSION) {
     return {
