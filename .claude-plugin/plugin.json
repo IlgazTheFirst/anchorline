@@ -1,0 +1,31 @@
+{
+  "name": "anchorline",
+  "displayName": "Anchorline",
+  "version": "0.2.0",
+  "description": "Plan holidays around what can't move: fixed dates, minimum stays, beach nights and home-by deadlines. Adds the Anchorline skill and a local MCP server. Offline, no API keys, never books or quotes.",
+  "author": {
+    "name": "IlgazTheFirst",
+    "url": "https://github.com/IlgazTheFirst"
+  },
+  "homepage": "https://github.com/IlgazTheFirst/anchorline#readme",
+  "repository": "https://github.com/IlgazTheFirst/anchorline",
+  "license": "MIT",
+  "keywords": [
+    "travel",
+    "itinerary",
+    "trip-planner",
+    "holiday",
+    "mcp",
+    "offline"
+  ],
+  "icon": "./docs/brand/logo-512.png",
+  "mcpServers": {
+    "anchorline": {
+      "command": "node",
+      "args": [
+        "${CLAUDE_PLUGIN_ROOT}/skills/anchorline/scripts/anchorline.mjs",
+        "mcp"
+      ]
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "anchorline",
+  "description": "Anchorline: plan around what can't move. An offline holiday planner as a Claude Code plugin (skill + MCP server).",
+  "owner": { "name": "IlgazTheFirst", "url": "https://github.com/IlgazTheFirst" },
+  "plugins": [
+    {
+      "name": "anchorline",
+      "source": "./",
+      "description": "Plan holidays around fixed dates, minimum stays and home-by deadlines, preview every change, and never invent bookings, fares or timetables.",
+      "category": "productivity",
+      "tags": ["travel", "planning", "mcp", "offline"]
+    }
+  ]
+}
