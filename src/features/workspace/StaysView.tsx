@@ -27,7 +27,7 @@ export function StaysView({ session }: { session: TripSession }) {
   const name = (s: Stay) => placeName(doc, s.placeId);
   const isCustom = (s: Stay) => {
     const p = doc.places.find((x) => x.id === s.placeId);
-    return Boolean(p && !p.catalogueId && !DEFAULT_PACK.places.some((c) => c.id === p.id));
+    return Boolean(p && p.dataKind === 'user' && !p.catalogueId && !DEFAULT_PACK.places.some((c) => c.id === p.id));
   };
   const resize = (s: Stay, delta: number) => {
     const nights = stayNights(s) + delta;

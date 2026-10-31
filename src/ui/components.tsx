@@ -92,11 +92,5 @@ export function Brand({ compact = false }: { compact?: boolean }) {
 }
 
 export function Logo() {
-  return (
-    <svg viewBox="0 0 64 64" aria-hidden="true">
-      <rect width="64" height="64" rx="14" fill="#1f6f78" />
-      <path d="M14 40c8-3 14-12 18-24 4 12 10 21 18 24-6 1-12 3-18 9-6-6-12-8-18-9z" fill="#fbf8f3" />
-      <circle cx="46" cy="18" r="5" fill="#e0735a" />
-    </svg>
-  );
+  return <img src="/logo.svg" alt="" width={28} height={28} />;
 }

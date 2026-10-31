@@ -1,18 +1,22 @@
 :root {
-  --paper: #fbf8f3;
+  /* Brand: Navy #0b1f33, Sand #f7f2ea, Teal #14b8a6/#2dd4bf, Coral #ff6b57.
+     Text and controls use deeper shades of teal and coral so they meet WCAG AA. */
+  --paper: #f7f2ea;
   --card: #ffffff;
-  --ink: #1d2a3a;
-  --ink-soft: #4f5b6b;
-  --line: #e4dccf;
-  --teal: #1f6f78;
-  --teal-soft: #e3f0ef;
-  --coral: #c9563c;
-  --coral-soft: #fbe9e3;
+  --ink: #0b1f33;
+  --ink-soft: #4a5868;
+  --line: #e2d9cb;
+  --teal: #0f766e;
+  --teal-bright: #14b8a6;
+  --teal-soft: #e0f5f2;
+  --coral: #c2412d;
+  --coral-bright: #ff6b57;
+  --coral-soft: #ffece8;
   --amber: #8a5a00;
   --amber-soft: #fbf0d9;
   --green: #22693b;
   --green-soft: #e4f2e7;
-  --focus: #1f6f78;
+  --focus: #0f766e;
   --radius: 10px;
   --shadow: 0 1px 2px rgb(29 42 58 / 6%), 0 4px 14px rgb(29 42 58 / 5%);
   color-scheme: light;
@@ -55,7 +59,7 @@ button, .button {
 button:hover:not(:disabled), .button:hover { border-color: var(--teal); }
 button:disabled { opacity: 0.55; cursor: not-allowed; }
 button.primary, .button.primary { background: var(--teal); border-color: var(--teal); color: #fff; font-weight: 600; }
-button.primary:hover:not(:disabled) { background: #185a61; }
+button.primary:hover:not(:disabled) { background: #0b5f59; }
 button.danger { color: var(--coral); border-color: #ecc4b8; }
 button.small { min-height: 2.1rem; padding: 0.25rem 0.6rem; font-size: 0.9rem; }
 button.link { border: none; background: none; color: var(--teal); padding: 0.2rem; min-height: auto; text-decoration: underline; }
@@ -99,10 +103,10 @@ legend { font-weight: 700; padding: 0 0.3rem; }
 
 .tabs { display: flex; flex-wrap: wrap; gap: 0.25rem; border-bottom: 1px solid var(--line); margin-bottom: 1rem; }
 .tabs button { border: none; border-bottom: 3px solid transparent; border-radius: 0; background: none; padding: 0.5rem 0.8rem; }
-.tabs button[aria-selected='true'] { border-bottom-color: var(--teal); font-weight: 700; color: var(--teal); }
+.tabs button[aria-selected='true'] { border-bottom-color: var(--teal-bright); font-weight: 700; color: var(--teal); }
 
 .stay { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 0.25rem 1rem; }
-.nights { grid-row: span 3; text-align: center; min-width: 4.2rem; padding: 0.4rem; border-radius: 8px; background: var(--teal-soft); color: var(--teal); }
+.nights { grid-row: span 3; text-align: center; min-width: 4.2rem; padding: 0.4rem; border-radius: 8px; background: var(--teal-soft); color: var(--teal); border-left: 3px solid var(--teal-bright); }
 .nights strong { display: block; font-size: 1.6rem; line-height: 1.1; }
 .dates { font-weight: 600; }
 .tags { display: flex; flex-wrap: wrap; gap: 0.3rem; }
@@ -114,7 +118,7 @@ legend { font-weight: 700; padding: 0 0.3rem; }
 .badge.bad { color: var(--coral); background: var(--coral-soft); border-color: #efc2b4; }
 .badge.open { color: var(--amber); background: var(--amber-soft); border-color: #ead39c; }
 .badge.neutral { color: var(--ink-soft); background: #f2ede4; border-color: var(--line); }
-.badge.lock { color: var(--ink); background: #eef1f5; border-color: #d4dbe5; }
+.badge.lock { color: var(--coral); background: var(--coral-soft); border-color: var(--coral-bright); }
 
 .check { border-left: 4px solid var(--line); padding: 0.4rem 0.75rem; margin-bottom: 0.5rem; background: #fff; border-radius: 0 8px 8px 0; }
 .check.violated { border-left-color: var(--coral); }

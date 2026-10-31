@@ -26,6 +26,7 @@ for (const size of SIZES) {
       await page.getByLabel('Leave the last stop').fill('2031-02-14');
       await page.getByLabel('Home by (date)').fill('2031-02-15');
       await page.getByLabel('Consecutive beach nights').fill('4');
+      await page.evaluate(() => window.scrollTo(0, 0));
       await shot('01-create-trip');
 
       await page.getByRole('button', { name: 'Review summary' }).click();
