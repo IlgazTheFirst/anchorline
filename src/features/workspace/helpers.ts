@@ -10,3 +10,6 @@ export function placeZone(doc: TripDocument, id: string): string {
 }
 
 export const PART_ORDER = ['morning', 'afternoon', 'evening', 'night', 'any'];
+
+
+export { customPlaceId } from '../../domain/places';

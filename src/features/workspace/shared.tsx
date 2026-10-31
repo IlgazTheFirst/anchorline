@@ -3,6 +3,7 @@ import { DEFAULT_PACK } from '../../catalogue';
 import type { Place, TripDocument } from '../../domain/schema';
 import { Field } from '../../ui/components';
 import { catalogueAsPlace, timeZones } from '../setup/options';
+import { customPlaceId } from './helpers';
 
 /** Choose a catalogue place, an existing custom place, or describe a new custom place. */
 export function PlacePicker({ doc, label, value, onChange, excludeHome = true }: { doc: TripDocument; label: string; value: Place | null; onChange: (p: Place | null) => void; excludeHome?: boolean }) {
@@ -14,8 +15,7 @@ export function PlacePicker({ doc, label, value, onChange, excludeHome = true }:
   const [tags, setTags] = useState('city');
   const emitCustom = (n: string, z: string, t: string) => {
     if (!n.trim()) return onChange(null);
-    const slug = n.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '').slice(0, 40) || 'place';
-    onChange({ id: `custom_${slug}`, name: n.trim(), timeZone: z, tags: t.split(',').map((x) => x.trim()).filter(Boolean).slice(0, 8), dataKind: 'user', catalogueId: null, country: null, coordinates: null });
+    onChange({ id: customPlaceId(doc, n, z), name: n.trim(), timeZone: z, tags: t.split(',').map((x) => x.trim()).filter(Boolean).slice(0, 8), dataKind: 'user', catalogueId: null, country: null, coordinates: null });
   };
   return (
     <div>

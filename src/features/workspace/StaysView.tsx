@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { newId } from '../../application/newTrip';
+import { DEFAULT_PACK } from '../../catalogue';
 import { addDays, formatDate, isValidPlainDate } from '../../domain/dates';
 import { sortStays, stayNights } from '../../domain/derive';
 import type { Place, Stay } from '../../domain/schema';
@@ -24,6 +25,10 @@ export function StaysView({ session }: { session: TripSession }) {
   const [bookingRef, setBookingRef] = useState('');
 
   const name = (s: Stay) => placeName(doc, s.placeId);
+  const isCustom = (s: Stay) => {
+    const p = doc.places.find((x) => x.id === s.placeId);
+    return Boolean(p && !p.catalogueId && !DEFAULT_PACK.places.some((c) => c.id === p.id));
+  };
   const resize = (s: Stay, delta: number) => {
     const nights = stayNights(s) + delta;
     if (nights < 1) return;
@@ -78,6 +83,11 @@ export function StaysView({ session }: { session: TripSession }) {
                 </div>
               </div>
               {s.reason && <p style={{ marginTop: '0.5rem' }}>{s.reason}</p>}
+              {isCustom(s) && (
+                <p className="banner info" style={{ margin: '0.5rem 0 0' }}>
+                  <strong>Your own place.</strong> It is outside the {DEFAULT_PACK.title} catalogue, so there are no automatic routes, activities or season notes. Add journeys and activities yourself. A new plan keeps this stay on its dates.
+                </p>
+              )}
               <div className="actions">
                 <button type="button" className="small" onClick={() => resize(s, -1)} disabled={nights <= 1 || datesLocked} aria-label={`One night fewer in ${name(s)}`}>
                   − night

@@ -49,7 +49,7 @@ export function PlanPanel({ session, autoGenerate = false }: { session: TripSess
       {!doc.isSynthetic && (
         <p className="muted" style={{ marginTop: '0.5rem' }}>
           Automatic planning covers {DEFAULT_PACK.title} ({DEFAULT_PACK.places.length} places, checked {formatDate(DEFAULT_PACK.checkedAt, { year: true })}). Travel times are planning estimates, never timetables or
-          fares. Anywhere else, add stays by hand. A new plan keeps your locks and fixed events and is shown as a preview first.
+          fares. Anywhere else, add your own places by hand; a new plan keeps their stays on the same dates, along with your locks and fixed events, and is shown as a preview first.
         </p>
       )}
       {problems.length > 0 && (

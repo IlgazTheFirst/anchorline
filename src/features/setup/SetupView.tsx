@@ -252,7 +252,7 @@ export function SetupView({ repo }: { repo: TripRepository }) {
           </fieldset>
           <fieldset>
             <legend>Places ({DEFAULT_PACK.title})</legend>
-            <p className="muted">Tick places you must include (with a minimum number of nights if you like) or want to avoid. Leave everything unticked to let the planner choose.</p>
+            <p className="muted">Tick places you must include (with a minimum number of nights if you like) or want to avoid. Leave everything unticked to let the planner choose. Going somewhere not listed? Create the trip, then add your own place in the Stays tab with its name and time zone.</p>
             <div className="table-wrap">
               <table>
                 <thead>

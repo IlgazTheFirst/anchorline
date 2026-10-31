@@ -52,6 +52,9 @@ export function InterestControls({ profile, onChange }: { profile: Profile; onCh
         <Field label="Quiet evenings: no alcohol-focused suggestions" inline>
           {(id) => <input id={id} type="checkbox" checked={profile.alcoholPreference === 'avoid_alcohol_focused'} onChange={(e) => onChange({ ...profile, alcoholPreference: e.target.checked ? 'avoid_alcohol_focused' : 'unspecified' })} />}
         </Field>
+        <Field label="Keep the morning after a late night free" inline>
+          {(id) => <input id={id} type="checkbox" checked={profile.protectRecoveryTime} onChange={(e) => onChange({ ...profile, protectRecoveryTime: e.target.checked })} />}
+        </Field>
         <Field label="Travelling with children" inline>
           {(id) => <input id={id} type="checkbox" checked={profile.familyFriendly} onChange={(e) => onChange({ ...profile, familyFriendly: e.target.checked })} />}
         </Field>
