@@ -1,0 +1,9 @@
+{
+  "name": "Holiday Planner",
+  "short_name": "Holidays",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f7f3ec",
+  "theme_color": "#1f6f78",
+  "icons": [{ "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }]
+}
