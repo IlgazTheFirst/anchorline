@@ -86,15 +86,22 @@ export function buildPlanRequest(doc: TripDocument, pack: DestinationPack): Requ
       }
     }
   }
-  const lockedStays = doc.stays.filter((s) => s.lockedFields.length > 0);
-  for (const s of lockedStays) {
+  const customPlaces = doc.places.filter((p) => p.id !== doc.homePlaceId && !(p.catalogueId && catalogueIds.has(p.catalogueId)) && !catalogueIds.has(p.id));
+  const customIds = new Set(customPlaces.map((p) => p.id));
+  // The planner knows nothing about the traveller's own places, so stays there keep their dates.
+  for (const s of doc.stays) {
+    if (s.lockedFields.length || !customIds.has(s.placeId)) continue;
+    const name = customPlaces.find((p) => p.id === s.placeId)!.name;
+    pins.push({ placeId: s.placeId, firstNight: s.checkIn, lastNight: addDays(s.checkOutExclusive, -1), exact: true, reason: `your own stay in ${name}`, sourceId: s.id });
+  }
+  const lockedStays = doc.stays.filter((s) => s.lockedFields.length > 0 || customIds.has(s.placeId));
+  for (const s of lockedStays.filter((x) => x.lockedFields.length > 0)) {
     const id = toPlanId(s.placeId);
     if (s.lockedFields.includes('checkIn') || s.lockedFields.includes('checkOutExclusive')) {
       pins.push({ placeId: id, firstNight: s.checkIn, lastNight: addDays(s.checkOutExclusive, -1), exact: true, reason: `your locked stay`, sourceId: s.id });
     } else requiredPlaceIds.push(id);
   }
   if (problems.length) return { ok: false, problems };
-  const customPlaces = doc.places.filter((p) => p.id !== doc.homePlaceId && !(p.catalogueId && catalogueIds.has(p.catalogueId)) && !catalogueIds.has(p.id));
   const isKept = (a: TripDocument['activities'][number]) => a.lockedFields.length > 0 || doc.anchors.some((an) => an.kind === 'fixed_event' && an.activityId === a.id);
   const keptActivities = doc.activities.filter(isKept);
   const userActivities = doc.activities.filter((a) => !isKept(a) && a.dataKind === 'user');

@@ -156,3 +156,69 @@ describe('deterministic planner', () => {
     expect(r.unresolved.join(' ')).toMatch(/full moon/i);
   });
 });
+
+describe('custom places, downtime and surprises', () => {
+  it('regenerating keeps a stay at your own place on its dates and says it is outside the catalogue', () => {
+    const doc = trip(12, [beach(4)]);
+    doc.places.push({ id: 'custom_example_isle', name: 'Example Isle (fictional)', timeZone: 'Asia/Bangkok', tags: ['beach'], dataKind: 'user', catalogueId: null });
+    doc.stays.push({ id: 'mine', placeId: 'custom_example_isle', checkIn: '2031-02-06', checkOutExclusive: '2031-02-09', purposeTags: ['beach'], lockedFields: [], accommodation: { name: 'Fictional hut' } });
+    const r = planForTrip(doc, DEFAULT_PACK).result!;
+    expect(r.status).toBe('ok');
+    const kept = r.stays.find((s) => s.placeId === 'custom_example_isle');
+    expect(kept).toMatchObject({ id: 'mine', checkIn: '2031-02-06', checkOutExclusive: '2031-02-09', accommodation: { name: 'Fictional hut' } });
+    expect(r.unresolved.join(' ')).toMatch(/Example Isle \(fictional\) is your own place, outside the/);
+    const legsTouching = r.travelLegs.filter((l) => l.fromPlaceId === 'custom_example_isle' || l.toPlaceId === 'custom_example_isle');
+    expect(legsTouching.length).toBeGreaterThan(0);
+    expect(legsTouching.every((l) => l.durationRangeMinutes === null && l.departure === null)).toBe(true);
+  });
+
+  it('keeps generated days uncrowded: at most two planned parts and one part always free', () => {
+    const doc = trip(16, [beach(5)], { preset: 'adventure' });
+    const applied = previewProposal(doc, makeProposal(doc, 'g', planToCommands(planForTrip(doc, DEFAULT_PACK).result!), 'planner')).next!;
+    const byDate = new Map<string, string[]>();
+    for (const a of applied.activities) byDate.set(a.date!, [...(byDate.get(a.date!) ?? []), a.partOfDay!]);
+    for (const [date, parts] of byDate) {
+      if (parts.includes('any')) expect(parts, date).toHaveLength(1);
+      else expect(parts.length, date).toBeLessThanOrEqual(2);
+    }
+  });
+
+  it('protects the morning after a late night', () => {
+    const doc = trip(10, [], { weights: { nightlife: 3 } });
+    doc.places.push({ id: 'phuket', name: 'Phuket', timeZone: 'Asia/Bangkok', tags: ['beach'], dataKind: 'curated', catalogueId: 'phuket' });
+    doc.anchors.push({ id: 'req', kind: 'minimum_nights_at_place', strength: 'hard', placeId: 'phuket', minimumNights: 5 });
+    const r = planForTrip(doc, DEFAULT_PACK).result!;
+    const night = r.activities.find((a) => a.catalogueActivityId === 'hkt_bangla');
+    expect(night).toBeDefined();
+    const nextDay = new Date(`${night!.date}T00:00:00Z`);
+    nextDay.setUTCDate(nextDay.getUTCDate() + 1);
+    const next = nextDay.toISOString().slice(0, 10);
+    expect(r.activities.filter((a) => a.date === next && (a.partOfDay === 'morning' || a.partOfDay === 'any'))).toHaveLength(0);
+  });
+
+  it('surprises never land on protected rest, keep a free part, and include short day trips', () => {
+    const doc = trip(14, [{ id: 'req', kind: 'minimum_nights_at_place', strength: 'hard', placeId: 'bangkok', minimumNights: 5 }], { weights: { culture: 3 } });
+    doc.places.push({ id: 'bangkok', name: 'Bangkok', timeZone: 'Asia/Bangkok', tags: ['city'], dataKind: 'curated', catalogueId: 'bangkok' });
+    const applied = previewProposal(doc, makeProposal(doc, 'g', planToCommands(planForTrip(doc, DEFAULT_PACK).result!), 'planner')).next!;
+    applied.revision = 2;
+    const bkk = applied.stays.find((s) => s.placeId === 'bangkok')!;
+    const restDay = new Date(`${bkk.checkIn}T00:00:00Z`);
+    restDay.setUTCDate(restDay.getUTCDate() + 2);
+    const rest = restDay.toISOString().slice(0, 10);
+    applied.anchors.push({ id: 'rest', kind: 'protected_rest', strength: 'hard', placeId: 'bangkok', start: { localDateTime: `${rest}T00:00`, timeZone: 'Asia/Bangkok' }, end: { localDateTime: `${rest}T23:00`, timeZone: 'Asia/Bangkok' } });
+    const seen: string[] = [];
+    for (let round = 0; round < 4; round++) {
+      for (const s of suggestSurprises(applied, DEFAULT_PACK, round)) {
+        seen.push(s.title);
+        expect(s.date).not.toBe(rest);
+        const sameDay = applied.activities.filter((a) => a.date === s.date);
+        if (s.partOfDay === 'any') expect(sameDay).toHaveLength(0);
+        else expect(sameDay.length).toBeLessThanOrEqual(1);
+        const p = previewProposal(applied, makeProposal(applied, s.title, s.commands, 'planner'));
+        expect(p.canApply).toBe(true);
+        expect(p.newlyViolated).toHaveLength(0);
+      }
+    }
+    expect(seen.some((t) => t.startsWith('Day trip to Ayutthaya'))).toBe(true);
+  });
+});

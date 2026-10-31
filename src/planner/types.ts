@@ -31,7 +31,7 @@ export interface PlanRequest {
   departureGatewayId: string | null;
   /** Places outside the catalogue that the traveller has added (manual planning only). */
   customPlaces: Place[];
-  /** Existing locked stays and activities, carried through untouched. */
+  /** Existing stays to reuse when the plan keeps their exact dates: locked stays and stays at the traveller's own places. */
   lockedStays: Stay[];
   lockedLegs: TravelLeg[];
   keptActivities: Activity[];

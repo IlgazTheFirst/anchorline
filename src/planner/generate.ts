@@ -1,5 +1,6 @@
 import type { CatalogueActivity, CataloguePlace, DestinationPack } from '../catalogue/schema';
 import { addDays, compareDates, datesInRange, dayOfWeek, formatDate, formatMinutes, monthOf, nightsBetween } from '../domain/dates';
+import { recoveryMornings } from '../domain/derive';
 import type { Activity, Claim, Interest, PartOfDay, Place, Stay, TravelLeg } from '../domain/schema';
 import { allocateNights, type StopSpec } from './allocate';
 import { RouteGraph, type Transfer } from './graph';
@@ -245,12 +246,16 @@ export function generatePlan(req: PlanRequest, options: PlanOptions = {}): PlanR
       }
       return u + s.variety - s.moves - s.transfers - s.gateway;
     };
+    // Every final route must contain the required places, so partial routes that already hold
+    // them rank first. This constant never changes the order of complete routes.
+    const REQUIRED_BONUS = 10;
+    const ranked = (seq: string[], p: number) => p + REQUIRED_BONUS * seq.filter((id) => required.has(id)).length;
     let beam: Candidate[] = [];
     const ids = [...nodes.keys()].sort();
     for (const id of ids) {
       if (!pinnedOk([], id)) continue;
       const p = partialScore([id]);
-      if (p !== null) beam.push({ seq: [id], partial: p });
+      if (p !== null) beam.push({ seq: [id], partial: ranked([id], p) });
     }
     for (let depth = 1; depth <= kMax && beam.length; depth++) {
       beam.sort((a, b) => b.partial - a.partial || a.seq.join('>').localeCompare(b.seq.join('>')));
@@ -267,7 +272,7 @@ export function generatePlan(req: PlanRequest, options: PlanOptions = {}): PlanR
           const stillMissing = missing - (required.has(id) ? 1 : 0);
           if (stillMissing > kMax - seq.length) continue;
           const p = partialScore(seq);
-          if (p !== null) next.push({ seq, partial: p });
+          if (p !== null) next.push({ seq, partial: ranked(seq, p) });
         }
       }
       beam = next;
@@ -552,6 +557,10 @@ function buildItinerary(req: PlanRequest, best: Evaluated, nodes: Map<string, No
   unresolved.push('Travel times between stops are planning estimates from the documented routes, not timetables or fares.');
   unresolved.push('No prices are included. Add allowances or quotes in Budget.');
   unresolved.push(...notes);
+  for (const id of best.seq) {
+    const n = nodes.get(id)!;
+    if (!n.catalogue) unresolved.push(`${n.name} is your own place, outside the ${pack.title} catalogue: its journeys, activities and evidence are yours to add.`);
+  }
   if (req.profile.accessibility.stepFreeNeeded) unresolved.push('Step-free access is not verified for most places and activities in this pack. Check each one directly.');
 
   const matchedAll = new Set(best.seq.flatMap((id) => nodes.get(id)!.matched));
@@ -619,6 +628,8 @@ function planActivities(req: PlanRequest, best: Evaluated, stays: Stay[], nodes:
     if (d) blocked.add(d);
   }
   for (const pin of req.pins) if (!pin.exact) for (const d of datesInRange(addDays(pin.firstNight, 1), addDays(pin.lastNight, 1))) blocked.add(d);
+  // Enough downtime: with recovery protected, no morning plans after a late night.
+  const noMorning = recoveryMornings({ activities, profile: req.profile });
   const byPlace = new Map<string, CatalogueActivity[]>();
   for (const a of req.pack.activities) {
     const list = byPlace.get(a.placeId) ?? [];
@@ -645,28 +656,29 @@ function planActivities(req: PlanRequest, best: Evaluated, stays: Stay[], nodes:
       }
       if (!allowed.ok || placed >= slots) continue;
       const fullDay = a.partOfDay === 'any' && a.durationHours.min >= 6;
-      let chosen: { date: string; part: PartOfDay } | null = null;
+      const lateNight = req.profile.protectRecoveryTime && a.partOfDay === 'night';
+      let chosen: { date: string; part: PartOfDay; load: number } | null = null;
       let dayMismatch = false;
+      // Spread activities: prefer the least-busy valid day, then the earliest.
       for (const date of interior) {
         if (a.daysOfWeek && !a.daysOfWeek.includes(dayOfWeek(date))) {
           dayMismatch = true;
           continue;
         }
-        const parts = used.get(date) ?? new Set<PartOfDay>();
-        if (fullDay) {
-          if (parts.size === 0) {
-            chosen = { date, part: 'any' };
-            break;
-          }
-          continue;
+        const taken = used.get(date) ?? new Set<PartOfDay>();
+        const parts = new Set<PartOfDay>(taken);
+        if (noMorning.has(date)) parts.add('morning');
+        if (lateNight) {
+          const nextDay = used.get(addDays(date, 1));
+          if (nextDay && (nextDay.has('morning') || nextDay.has('any'))) continue;
         }
-        if (parts.has('any') || parts.size >= 2) continue;
-        const preferred: PartOfDay = a.partOfDay === 'night' ? 'evening' : a.partOfDay;
-        const wanted = preferred === 'any' ? PARTS.find((p) => !parts.has(p)) : parts.has(preferred) ? undefined : preferred;
-        if (wanted) {
-          chosen = { date, part: wanted };
-          break;
+        let part: PartOfDay | undefined;
+        if (fullDay) part = parts.size === 0 ? 'any' : undefined;
+        else if (!parts.has('any') && parts.size < 2) {
+          const preferred: PartOfDay = a.partOfDay === 'night' ? 'evening' : a.partOfDay;
+          part = preferred === 'any' ? PARTS.find((p) => !parts.has(p)) : parts.has(preferred) ? undefined : preferred;
         }
+        if (part && (!chosen || taken.size < chosen.load)) chosen = { date, part, load: taken.size };
       }
       if (!chosen) {
         if (dayMismatch && a.distinctive >= 2) {
@@ -678,6 +690,7 @@ function planActivities(req: PlanRequest, best: Evaluated, stays: Stay[], nodes:
       const parts = used.get(chosen.date) ?? new Set<PartOfDay>();
       parts.add(chosen.part);
       used.set(chosen.date, parts);
+      if (lateNight) noMorning.add(addDays(chosen.date, 1));
       const id = `act_${i + 1}_${a.id}`;
       const claimId = `claim_act_${id}`;
       claims.push({
@@ -698,8 +711,9 @@ function planActivities(req: PlanRequest, best: Evaluated, stays: Stay[], nodes:
         start: null,
         end: null,
         date: chosen.date,
-        partOfDay: chosen.part,
+        partOfDay: a.partOfDay === 'night' ? 'night' : chosen.part,
         durationMinutes: { min: Math.round(a.durationHours.min * 60), max: Math.round(a.durationHours.max * 60) },
+        daysOfWeek: a.daysOfWeek ? [...a.daysOfWeek] : null,
         tags: [...a.tags],
         lockedFields: [],
         dataKind: 'curated',

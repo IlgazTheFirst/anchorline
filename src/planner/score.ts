@@ -4,8 +4,8 @@ import { INTERESTS, type Interest, type Profile } from '../domain/schema';
 /** Tunable constants, documented in docs/ALGORITHM.md. */
 export const PACE = {
   slow: { minNights: 3, changePenalty: 1.2, activitiesPerFullDay: 0.5, extraMax: 2 },
-  balanced: { minNights: 2, changePenalty: 0.7, activitiesPerFullDay: 1, extraMax: 1 },
-  fast: { minNights: 1, changePenalty: 0.35, activitiesPerFullDay: 1.5, extraMax: 0 },
+  balanced: { minNights: 2, changePenalty: 0.7, activitiesPerFullDay: 0.75, extraMax: 1 },
+  fast: { minNights: 1, changePenalty: 0.35, activitiesPerFullDay: 1.25, extraMax: 0 },
 } as const;
 
 export const WEIGHTS = {
