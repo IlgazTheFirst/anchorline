@@ -1,0 +1,3024 @@
+{
+  "schemaVersion": 1,
+  "packId": "th-my-peninsula",
+  "version": "2026.10.1",
+  "title": "Thailand & the Malay Peninsula",
+  "author": "Holiday Planner contributors",
+  "license": "MIT (project-authored text and data)",
+  "attribution": "Descriptions are written for this project. Linked pages (Wikivoyage, Wikipedia) are cited as sources and are not copied; they remain under their own licences.",
+  "dataKind": "curated",
+  "checkedAt": "2026-10-31",
+  "coverage": {
+    "description": "Fifteen destinations across Thailand, Malaysia and Singapore, with planning-level travel times between them. No timetables, fares or live availability.",
+    "countries": [
+      "Thailand",
+      "Malaysia",
+      "Singapore"
+    ]
+  },
+  "sourceUrls": [
+    "https://en.wikivoyage.org/wiki/Thailand",
+    "https://en.wikivoyage.org/wiki/Malaysia",
+    "https://en.wikivoyage.org/wiki/Singapore"
+  ],
+  "defaultBuffers": {
+    "flight": {
+      "pre": 120,
+      "post": 45
+    },
+    "ferry": {
+      "pre": 45,
+      "post": 30
+    },
+    "default": {
+      "pre": 30,
+      "post": 20
+    }
+  },
+  "places": [
+    {
+      "id": "bangkok",
+      "name": "Bangkok",
+      "country": "Thailand",
+      "timeZone": "Asia/Bangkok",
+      "tags": [
+        "city",
+        "food",
+        "culture",
+        "nightlife"
+      ],
+      "scores": {
+        "food": 3,
+        "nightlife": 3,
+        "beach": 0,
+        "culture": 3,
+        "nature": 0,
+        "adventure": 1,
+        "city": 3,
+        "relax": 1
+      },
+      "familyScore": 2,
+      "recommendedNights": {
+        "min": 2,
+        "ideal": 4,
+        "max": 6
+      },
+      "gateway": "major",
+      "airports": [
+        "BKK",
+        "DMK"
+      ],
+      "summary": "Thailand's capital: royal temples by the river, street food at every hour, markets, rooftop bars and an efficient rail and boat network.",
+      "highlights": [
+        "Grand Palace and riverside temples",
+        "Chinatown street food",
+        "Weekend markets",
+        "River boats"
+      ],
+      "seasonGuidance": {
+        "wetterMonths": [
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "cautionMonths": [],
+        "note": "Approximate guidance: rainy season roughly May to October; November to February is usually cooler and drier. Check a forecast."
+      },
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Bangkok",
+        "https://en.wikipedia.org/wiki/Bangkok"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "ayutthaya",
+      "name": "Ayutthaya",
+      "country": "Thailand",
+      "timeZone": "Asia/Bangkok",
+      "tags": [
+        "culture",
+        "history"
+      ],
+      "scores": {
+        "food": 1,
+        "nightlife": 0,
+        "beach": 0,
+        "culture": 3,
+        "nature": 1,
+        "adventure": 1,
+        "city": 1,
+        "relax": 1
+      },
+      "familyScore": 2,
+      "recommendedNights": {
+        "min": 1,
+        "ideal": 1,
+        "max": 2
+      },
+      "gateway": "none",
+      "airports": [],
+      "summary": "The ruined former royal capital north of Bangkok, a UNESCO World Heritage site best seen by bike or on foot early in the day.",
+      "highlights": [
+        "Historical park temples",
+        "Cycling between ruins"
+      ],
+      "seasonGuidance": {
+        "wetterMonths": [
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "cautionMonths": [],
+        "note": "Approximate guidance: rainy season roughly May to October; November to February is usually cooler and drier. Check a forecast."
+      },
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Ayutthaya",
+        "https://en.wikipedia.org/wiki/Ayutthaya_(city)"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "chiang_mai",
+      "name": "Chiang Mai",
+      "country": "Thailand",
+      "timeZone": "Asia/Bangkok",
+      "tags": [
+        "city",
+        "culture",
+        "food",
+        "nature"
+      ],
+      "scores": {
+        "food": 3,
+        "nightlife": 2,
+        "beach": 0,
+        "culture": 3,
+        "nature": 2,
+        "adventure": 2,
+        "city": 2,
+        "relax": 2
+      },
+      "familyScore": 2,
+      "recommendedNights": {
+        "min": 2,
+        "ideal": 4,
+        "max": 6
+      },
+      "gateway": "regional",
+      "airports": [
+        "CNX"
+      ],
+      "summary": "Northern Thailand's cultural centre: a walled old city full of temples, night markets, cooking schools and mountains within an hour's drive.",
+      "highlights": [
+        "Old City temples",
+        "Doi Suthep",
+        "Sunday Walking Street",
+        "Cooking classes"
+      ],
+      "seasonGuidance": {
+        "wetterMonths": [
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "cautionMonths": [
+          3,
+          4
+        ],
+        "note": "Approximate guidance: rainy season roughly May to October. Smoke haze from agricultural burning is often reported around March and April. Check air quality and a forecast."
+      },
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Chiang_Mai",
+        "https://en.wikipedia.org/wiki/Chiang_Mai"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "ko_samui",
+      "name": "Ko Samui",
+      "country": "Thailand",
+      "timeZone": "Asia/Bangkok",
+      "tags": [
+        "beach",
+        "island",
+        "food",
+        "nightlife"
+      ],
+      "scores": {
+        "food": 2,
+        "nightlife": 2,
+        "beach": 3,
+        "culture": 1,
+        "nature": 2,
+        "adventure": 1,
+        "city": 0,
+        "relax": 3
+      },
+      "familyScore": 3,
+      "recommendedNights": {
+        "min": 3,
+        "ideal": 4,
+        "max": 7
+      },
+      "gateway": "regional",
+      "airports": [
+        "USM"
+      ],
+      "summary": "The largest of the Gulf islands, with an airport, long sandy beaches on the east coast and boat trips to the Ang Thong marine park.",
+      "highlights": [
+        "Chaweng and Lamai beaches",
+        "Ang Thong marine park",
+        "Fisherman's Village, Bo Phut"
+      ],
+      "seasonGuidance": {
+        "wetterMonths": [
+          10,
+          11,
+          12
+        ],
+        "cautionMonths": [],
+        "note": "Approximate guidance: the Gulf islands usually get their heaviest rain around October to December, a different pattern from the Andaman coast. Check a forecast."
+      },
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Ko_Samui",
+        "https://en.wikipedia.org/wiki/Ko_Samui"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "ko_pha_ngan",
+      "name": "Ko Pha-ngan",
+      "country": "Thailand",
+      "timeZone": "Asia/Bangkok",
+      "tags": [
+        "beach",
+        "island",
+        "nightlife",
+        "nature"
+      ],
+      "scores": {
+        "food": 1,
+        "nightlife": 3,
+        "beach": 3,
+        "culture": 0,
+        "nature": 2,
+        "adventure": 1,
+        "city": 0,
+        "relax": 2
+      },
+      "familyScore": 1,
+      "recommendedNights": {
+        "min": 3,
+        "ideal": 4,
+        "max": 7
+      },
+      "gateway": "none",
+      "airports": [],
+      "summary": "A ferry hop from Samui: famous for the full-moon party at Hat Rin, but most of the island is quiet coves, jungle and waterfalls.",
+      "highlights": [
+        "Hat Rin",
+        "Quiet northern and western beaches",
+        "Waterfalls"
+      ],
+      "seasonGuidance": {
+        "wetterMonths": [
+          10,
+          11,
+          12
+        ],
+        "cautionMonths": [],
+        "note": "Approximate guidance: the Gulf islands usually get their heaviest rain around October to December, a different pattern from the Andaman coast. Check a forecast."
+      },
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Ko_Pha_Ngan",
+        "https://en.wikipedia.org/wiki/Ko_Pha-ngan"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "ko_tao",
+      "name": "Ko Tao",
+      "country": "Thailand",
+      "timeZone": "Asia/Bangkok",
+      "tags": [
+        "beach",
+        "island",
+        "adventure",
+        "nature"
+      ],
+      "scores": {
+        "food": 1,
+        "nightlife": 1,
+        "beach": 2,
+        "culture": 0,
+        "nature": 3,
+        "adventure": 3,
+        "city": 0,
+        "relax": 2
+      },
+      "familyScore": 2,
+      "recommendedNights": {
+        "min": 2,
+        "ideal": 3,
+        "max": 6
+      },
+      "gateway": "none",
+      "airports": [],
+      "summary": "A small, hilly island known for learning to dive and for snorkelling in clear water, with short hikes to viewpoints.",
+      "highlights": [
+        "Diving and snorkelling",
+        "Ko Nang Yuan",
+        "Viewpoint hikes"
+      ],
+      "seasonGuidance": {
+        "wetterMonths": [
+          10,
+          11,
+          12
+        ],
+        "cautionMonths": [],
+        "note": "Approximate guidance: the Gulf islands usually get their heaviest rain around October to December, a different pattern from the Andaman coast. Check a forecast."
+      },
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Ko_Tao",
+        "https://en.wikipedia.org/wiki/Ko_Tao"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "khao_sok",
+      "name": "Khao Sok National Park",
+      "country": "Thailand",
+      "timeZone": "Asia/Bangkok",
+      "tags": [
+        "nature",
+        "adventure"
+      ],
+      "scores": {
+        "food": 0,
+        "nightlife": 0,
+        "beach": 0,
+        "culture": 0,
+        "nature": 3,
+        "adventure": 3,
+        "city": 0,
+        "relax": 2
+      },
+      "familyScore": 2,
+      "recommendedNights": {
+        "min": 2,
+        "ideal": 2,
+        "max": 3
+      },
+      "gateway": "none",
+      "airports": [],
+      "summary": "Old rainforest and limestone peaks between the two coasts, with a dammed lake where you can sleep on floating raft houses.",
+      "highlights": [
+        "Cheow Lan Lake",
+        "Rainforest walks",
+        "River canoeing"
+      ],
+      "seasonGuidance": {
+        "wetterMonths": [
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "cautionMonths": [],
+        "note": "Approximate guidance: a rainforest that gets rain in most months, heaviest roughly May to November. Check a forecast."
+      },
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Khao_Sok_National_Park",
+        "https://en.wikipedia.org/wiki/Khao_Sok_National_Park"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "phuket",
+      "name": "Phuket",
+      "country": "Thailand",
+      "timeZone": "Asia/Bangkok",
+      "tags": [
+        "beach",
+        "island",
+        "nightlife",
+        "food"
+      ],
+      "scores": {
+        "food": 2,
+        "nightlife": 3,
+        "beach": 3,
+        "culture": 1,
+        "nature": 1,
+        "adventure": 2,
+        "city": 1,
+        "relax": 2
+      },
+      "familyScore": 3,
+      "recommendedNights": {
+        "min": 2,
+        "ideal": 4,
+        "max": 7
+      },
+      "gateway": "major",
+      "airports": [
+        "HKT"
+      ],
+      "summary": "Thailand's biggest island and a major airport: busy west-coast beaches, a characterful old town, and boat trips into Phang Nga Bay.",
+      "highlights": [
+        "Old Phuket Town",
+        "West-coast beaches",
+        "Phang Nga Bay",
+        "Big Buddha"
+      ],
+      "seasonGuidance": {
+        "wetterMonths": [
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "cautionMonths": [],
+        "note": "Approximate guidance: the Andaman coast is usually wettest from about May to October; November to April is the drier season. Check a forecast."
+      },
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Phuket",
+        "https://en.wikipedia.org/wiki/Phuket_province"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "ao_nang",
+      "name": "Krabi (Ao Nang)",
+      "country": "Thailand",
+      "timeZone": "Asia/Bangkok",
+      "tags": [
+        "beach",
+        "nature",
+        "adventure"
+      ],
+      "scores": {
+        "food": 1,
+        "nightlife": 1,
+        "beach": 2,
+        "culture": 1,
+        "nature": 3,
+        "adventure": 2,
+        "city": 0,
+        "relax": 2
+      },
+      "familyScore": 3,
+      "recommendedNights": {
+        "min": 2,
+        "ideal": 3,
+        "max": 5
+      },
+      "gateway": "regional",
+      "airports": [
+        "KBV"
+      ],
+      "summary": "The mainland base for Krabi's limestone islands: longtail boats leave the beach for island-hopping, and Railay is minutes away.",
+      "highlights": [
+        "Island-hopping by longtail",
+        "Tiger Cave Temple",
+        "Gateway to Railay"
+      ],
+      "seasonGuidance": {
+        "wetterMonths": [
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "cautionMonths": [],
+        "note": "Approximate guidance: the Andaman coast is usually wettest from about May to October; November to April is the drier season. Check a forecast."
+      },
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Ao_Nang",
+        "https://en.wikipedia.org/wiki/Ao_Nang"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "railay",
+      "name": "Railay",
+      "country": "Thailand",
+      "timeZone": "Asia/Bangkok",
+      "tags": [
+        "beach",
+        "adventure",
+        "nature"
+      ],
+      "scores": {
+        "food": 1,
+        "nightlife": 1,
+        "beach": 3,
+        "culture": 0,
+        "nature": 3,
+        "adventure": 3,
+        "city": 0,
+        "relax": 2
+      },
+      "familyScore": 2,
+      "recommendedNights": {
+        "min": 2,
+        "ideal": 3,
+        "max": 4
+      },
+      "gateway": "none",
+      "airports": [],
+      "summary": "A headland reached only by boat, walled in by limestone cliffs: rock climbing, cave beaches and dramatic sunsets.",
+      "highlights": [
+        "Rock climbing",
+        "Phra Nang cave beach",
+        "Viewpoint scramble"
+      ],
+      "seasonGuidance": {
+        "wetterMonths": [
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "cautionMonths": [],
+        "note": "Approximate guidance: the Andaman coast is usually wettest from about May to October; November to April is the drier season. Check a forecast."
+      },
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Railay",
+        "https://en.wikipedia.org/wiki/Railay_Beach"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "ko_lanta",
+      "name": "Ko Lanta",
+      "country": "Thailand",
+      "timeZone": "Asia/Bangkok",
+      "tags": [
+        "beach",
+        "island",
+        "nature",
+        "relax"
+      ],
+      "scores": {
+        "food": 1,
+        "nightlife": 1,
+        "beach": 3,
+        "culture": 1,
+        "nature": 2,
+        "adventure": 1,
+        "city": 0,
+        "relax": 3
+      },
+      "familyScore": 3,
+      "recommendedNights": {
+        "min": 3,
+        "ideal": 4,
+        "max": 7
+      },
+      "gateway": "none",
+      "airports": [],
+      "summary": "A long, relaxed island with a string of west-coast beaches, a national park at its southern tip and an old town built on stilts.",
+      "highlights": [
+        "Long west-coast beaches",
+        "National park and lighthouse",
+        "Old Town"
+      ],
+      "seasonGuidance": {
+        "wetterMonths": [
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "cautionMonths": [],
+        "note": "Approximate guidance: wettest from about May to October, when many smaller businesses close and some boats stop. Check a forecast."
+      },
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Ko_Lanta",
+        "https://en.wikipedia.org/wiki/Ko_Lanta"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "kuala_lumpur",
+      "name": "Kuala Lumpur",
+      "country": "Malaysia",
+      "timeZone": "Asia/Kuala_Lumpur",
+      "tags": [
+        "city",
+        "food",
+        "culture"
+      ],
+      "scores": {
+        "food": 3,
+        "nightlife": 2,
+        "beach": 0,
+        "culture": 2,
+        "nature": 1,
+        "adventure": 1,
+        "city": 3,
+        "relax": 1
+      },
+      "familyScore": 2,
+      "recommendedNights": {
+        "min": 2,
+        "ideal": 3,
+        "max": 5
+      },
+      "gateway": "major",
+      "airports": [
+        "KUL"
+      ],
+      "summary": "Malaysia's capital mixes Malay, Chinese and Indian food and culture: hawker streets, the Petronas Towers and the Batu Caves temples.",
+      "highlights": [
+        "Petronas Towers",
+        "Batu Caves",
+        "Jalan Alor food street"
+      ],
+      "seasonGuidance": {
+        "wetterMonths": [
+          4,
+          10,
+          11
+        ],
+        "cautionMonths": [],
+        "note": "Approximate guidance: rain is possible all year; the inter-monsoon months around April and October–November are often the wettest. Check a forecast."
+      },
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Kuala_Lumpur",
+        "https://en.wikipedia.org/wiki/Kuala_Lumpur"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "george_town",
+      "name": "George Town (Penang)",
+      "country": "Malaysia",
+      "timeZone": "Asia/Kuala_Lumpur",
+      "tags": [
+        "city",
+        "food",
+        "culture"
+      ],
+      "scores": {
+        "food": 3,
+        "nightlife": 1,
+        "beach": 1,
+        "culture": 3,
+        "nature": 1,
+        "adventure": 1,
+        "city": 2,
+        "relax": 2
+      },
+      "familyScore": 2,
+      "recommendedNights": {
+        "min": 2,
+        "ideal": 3,
+        "max": 5
+      },
+      "gateway": "regional",
+      "airports": [
+        "PEN"
+      ],
+      "summary": "A UNESCO-listed port town of shophouses, clan houses and street art, and one of the best places in the region to eat at hawker stalls.",
+      "highlights": [
+        "Heritage core and street art",
+        "Hawker food",
+        "Penang Hill",
+        "Kek Lok Si"
+      ],
+      "seasonGuidance": {
+        "wetterMonths": [
+          9,
+          10,
+          11
+        ],
+        "cautionMonths": [],
+        "note": "Approximate guidance: usually wettest around September to November. Check a forecast."
+      },
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/George_Town_(Malaysia)",
+        "https://en.wikipedia.org/wiki/George_Town,_Penang"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "langkawi",
+      "name": "Langkawi",
+      "country": "Malaysia",
+      "timeZone": "Asia/Kuala_Lumpur",
+      "tags": [
+        "beach",
+        "island",
+        "nature"
+      ],
+      "scores": {
+        "food": 1,
+        "nightlife": 1,
+        "beach": 3,
+        "culture": 0,
+        "nature": 3,
+        "adventure": 2,
+        "city": 0,
+        "relax": 3
+      },
+      "familyScore": 3,
+      "recommendedNights": {
+        "min": 2,
+        "ideal": 4,
+        "max": 6
+      },
+      "gateway": "regional",
+      "airports": [
+        "LGK"
+      ],
+      "summary": "An island geopark off Malaysia's north-west coast: mangrove rivers, a cable car to a sky bridge, and easygoing beaches.",
+      "highlights": [
+        "Cable car and Sky Bridge",
+        "Kilim mangroves",
+        "Pantai Cenang"
+      ],
+      "seasonGuidance": {
+        "wetterMonths": [
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "cautionMonths": [],
+        "note": "Approximate guidance: usually wettest from about May to October. Check a forecast."
+      },
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Langkawi",
+        "https://en.wikipedia.org/wiki/Langkawi"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "singapore",
+      "name": "Singapore",
+      "country": "Singapore",
+      "timeZone": "Asia/Singapore",
+      "tags": [
+        "city",
+        "food",
+        "culture"
+      ],
+      "scores": {
+        "food": 3,
+        "nightlife": 2,
+        "beach": 1,
+        "culture": 2,
+        "nature": 2,
+        "adventure": 1,
+        "city": 3,
+        "relax": 1
+      },
+      "familyScore": 3,
+      "recommendedNights": {
+        "min": 2,
+        "ideal": 3,
+        "max": 5
+      },
+      "gateway": "major",
+      "airports": [
+        "SIN"
+      ],
+      "summary": "A compact city-state with superb public transport, hawker centres, ambitious gardens and distinct neighbourhoods to walk.",
+      "highlights": [
+        "Gardens by the Bay",
+        "Hawker centres",
+        "Little India and Kampong Glam",
+        "Sentosa"
+      ],
+      "seasonGuidance": {
+        "wetterMonths": [
+          11,
+          12,
+          1
+        ],
+        "cautionMonths": [],
+        "note": "Approximate guidance: warm all year; usually wettest around November to January. Check a forecast."
+      },
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Singapore",
+        "https://en.wikipedia.org/wiki/Singapore"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    }
+  ],
+  "activities": [
+    {
+      "id": "bkk_grand_palace",
+      "placeId": "bangkok",
+      "title": "Grand Palace and Wat Phra Kaew",
+      "summary": "The former royal residence and the temple of the Emerald Buddha. Go early; a dress code applies.",
+      "tags": [
+        "culture"
+      ],
+      "partOfDay": "morning",
+      "durationHours": {
+        "min": 2,
+        "max": 3
+      },
+      "intensity": "easy",
+      "distinctive": 3,
+      "alcoholCentred": false,
+      "familyFriendly": true,
+      "stepFree": "unknown",
+      "daysOfWeek": null,
+      "recurrence": null,
+      "schedulingNote": "Covered shoulders and knees are expected. Check current opening hours.",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/Grand_Palace",
+        "https://en.wikipedia.org/wiki/Wat_Phra_Kaew"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "bkk_wat_arun",
+      "placeId": "bangkok",
+      "title": "Wat Arun by river ferry",
+      "summary": "Cross the Chao Phraya to the riverside Temple of Dawn, best in the late afternoon light.",
+      "tags": [
+        "culture"
+      ],
+      "partOfDay": "afternoon",
+      "durationHours": {
+        "min": 1,
+        "max": 2
+      },
+      "intensity": "easy",
+      "distinctive": 2,
+      "alcoholCentred": false,
+      "familyFriendly": true,
+      "stepFree": "unknown",
+      "daysOfWeek": null,
+      "recurrence": null,
+      "schedulingNote": null,
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/Wat_Arun"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "bkk_chatuchak",
+      "placeId": "bangkok",
+      "title": "Chatuchak Weekend Market",
+      "summary": "One of the world's largest markets: food, crafts, plants and vintage clothes.",
+      "tags": [
+        "food",
+        "city"
+      ],
+      "partOfDay": "morning",
+      "durationHours": {
+        "min": 2,
+        "max": 4
+      },
+      "intensity": "easy",
+      "distinctive": 2,
+      "alcoholCentred": false,
+      "familyFriendly": true,
+      "stepFree": "unknown",
+      "daysOfWeek": [
+        6,
+        7
+      ],
+      "recurrence": null,
+      "schedulingNote": "A weekend market. Check current opening days and hours.",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/Chatuchak_weekend_market"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "bkk_yaowarat",
+      "placeId": "bangkok",
+      "title": "Street food on Yaowarat (Chinatown)",
+      "summary": "An evening walk along Chinatown's main street as the food stalls open.",
+      "tags": [
+        "food",
+        "nightlife"
+      ],
+      "partOfDay": "evening",
+      "durationHours": {
+        "min": 2,
+        "max": 3
+      },
+      "intensity": "easy",
+      "distinctive": 3,
+      "alcoholCentred": false,
+      "familyFriendly": true,
+      "stepFree": "unknown",
+      "daysOfWeek": null,
+      "recurrence": null,
+      "schedulingNote": null,
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/Yaowarat_Road"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "bkk_river_boat",
+      "placeId": "bangkok",
+      "title": "Chao Phraya Express Boat ride",
+      "summary": "Use the river boats as a cheap sightseeing route past temples and old warehouses.",
+      "tags": [
+        "city",
+        "relax"
+      ],
+      "partOfDay": "any",
+      "durationHours": {
+        "min": 1,
+        "max": 2
+      },
+      "intensity": "easy",
+      "distinctive": 1,
+      "alcoholCentred": false,
+      "familyFriendly": true,
+      "stepFree": "unknown",
+      "daysOfWeek": null,
+      "recurrence": null,
+      "schedulingNote": null,
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/Chao_Phraya_Express_Boat"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "bkk_rooftop",
+      "placeId": "bangkok",
+      "title": "Rooftop bar at sunset",
+      "summary": "Bangkok's skyline from one of its many rooftop bars.",
+      "tags": [
+        "nightlife",
+        "city"
+      ],
+      "partOfDay": "evening",
+      "durationHours": {
+        "min": 2,
+        "max": 3
+      },
+      "intensity": "easy",
+      "distinctive": 1,
+      "alcoholCentred": true,
+      "familyFriendly": false,
+      "stepFree": "unknown",
+      "daysOfWeek": null,
+      "recurrence": null,
+      "schedulingNote": null,
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Bangkok"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "ayu_park",
+      "placeId": "ayutthaya",
+      "title": "Ayutthaya Historical Park",
+      "summary": "Brick temples and Buddha images from the old capital, spread over a river island.",
+      "tags": [
+        "culture"
+      ],
+      "partOfDay": "morning",
+      "durationHours": {
+        "min": 3,
+        "max": 5
+      },
+      "intensity": "moderate",
+      "distinctive": 3,
+      "alcoholCentred": false,
+      "familyFriendly": true,
+      "stepFree": "unknown",
+      "daysOfWeek": null,
+      "recurrence": null,
+      "schedulingNote": null,
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/Ayutthaya_Historical_Park"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "ayu_bike",
+      "placeId": "ayutthaya",
+      "title": "Cycle between the ruins",
+      "summary": "Rent a bicycle to link the temples at your own pace.",
+      "tags": [
+        "adventure",
+        "culture"
+      ],
+      "partOfDay": "afternoon",
+      "durationHours": {
+        "min": 2,
+        "max": 3
+      },
+      "intensity": "moderate",
+      "distinctive": 1,
+      "alcoholCentred": false,
+      "familyFriendly": true,
+      "stepFree": "unknown",
+      "daysOfWeek": null,
+      "recurrence": null,
+      "schedulingNote": null,
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Ayutthaya"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "cnx_doi_suthep",
+      "placeId": "chiang_mai",
+      "title": "Wat Phra That Doi Suthep",
+      "summary": "A mountainside temple with views over the city, reached by a long staircase or a funicular.",
+      "tags": [
+        "culture",
+        "nature"
+      ],
+      "partOfDay": "morning",
+      "durationHours": {
+        "min": 3,
+        "max": 4
+      },
+      "intensity": "moderate",
+      "distinctive": 3,
+      "alcoholCentred": false,
+      "familyFriendly": true,
+      "stepFree": "partial",
+      "daysOfWeek": null,
+      "recurrence": null,
+      "schedulingNote": null,
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/Wat_Phra_That_Doi_Suthep"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "cnx_old_city",
+      "placeId": "chiang_mai",
+      "title": "Old City temples on foot",
+      "summary": "Walk between the temples inside the moat, including the ruined great chedi of Wat Chedi Luang.",
+      "tags": [
+        "culture"
+      ],
+      "partOfDay": "morning",
+      "durationHours": {
+        "min": 2,
+        "max": 3
+      },
+      "intensity": "easy",
+      "distinctive": 2,
+      "alcoholCentred": false,
+      "familyFriendly": true,
+      "stepFree": "unknown",
+      "daysOfWeek": null,
+      "recurrence": null,
+      "schedulingNote": null,
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/Wat_Chedi_Luang",
+        "https://en.wikivoyage.org/wiki/Chiang_Mai"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "cnx_sunday_market",
+      "placeId": "chiang_mai",
+      "title": "Sunday Walking Street",
+      "summary": "The old city's main street closes to traffic for crafts and street food.",
+      "tags": [
+        "food",
+        "culture"
+      ],
+      "partOfDay": "evening",
+      "durationHours": {
+        "min": 2,
+        "max": 3
+      },
+      "intensity": "easy",
+      "distinctive": 2,
+      "alcoholCentred": false,
+      "familyFriendly": true,
+      "stepFree": "unknown",
+      "daysOfWeek": [
+        7
+      ],
+      "recurrence": null,
+      "schedulingNote": "Sunday evenings. Check the current schedule.",
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Chiang_Mai"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "cnx_cooking",
+      "placeId": "chiang_mai",
+      "title": "Thai cooking class",
+      "summary": "A morning market visit and hands-on class, one of the city's specialities.",
+      "tags": [
+        "food"
+      ],
+      "partOfDay": "morning",
+      "durationHours": {
+        "min": 4,
+        "max": 5
+      },
+      "intensity": "easy",
+      "distinctive": 2,
+      "alcoholCentred": false,
+      "familyFriendly": true,
+      "stepFree": "unknown",
+      "daysOfWeek": null,
+      "recurrence": null,
+      "schedulingNote": null,
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Chiang_Mai"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "cnx_elephants",
+      "placeId": "chiang_mai",
+      "title": "Elephant sanctuary that does not offer riding",
+      "summary": "Choose a sanctuary that does not offer rides or shows, and research its welfare record first.",
+      "tags": [
+        "nature"
+      ],
+      "partOfDay": "any",
+      "durationHours": {
+        "min": 6,
+        "max": 8
+      },
+      "intensity": "easy",
+      "distinctive": 2,
+      "alcoholCentred": false,
+      "familyFriendly": true,
+      "stepFree": "unknown",
+      "daysOfWeek": null,
+      "recurrence": null,
+      "schedulingNote": "Welfare standards vary widely. Research operators yourself.",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/Elephants_in_Thailand"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "cnx_inthanon",
+      "placeId": "chiang_mai",
+      "title": "Doi Inthanon National Park",
+      "summary": "A day trip to Thailand's highest mountain: waterfalls, cloud forest and hill-tribe villages.",
+      "tags": [
+        "nature",
+        "adventure"
+      ],
+      "partOfDay": "any",
+      "durationHours": {
+        "min": 8,
+        "max": 10
+      },
+      "intensity": "moderate",
+      "distinctive": 2,
+      "alcoholCentred": false,
+      "familyFriendly": true,
+      "stepFree": "unknown",
+      "daysOfWeek": null,
+      "recurrence": null,
+      "schedulingNote": null,
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/Doi_Inthanon_National_Park"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "usm_big_buddha",
+      "placeId": "ko_samui",
+      "title": "Big Buddha (Wat Phra Yai)",
+      "summary": "A large golden Buddha on a small islet joined to the north-east coast.",
+      "tags": [
+        "culture"
+      ],
+      "partOfDay": "afternoon",
+      "durationHours": {
+        "min": 1,
+        "max": 2
+      },
+      "intensity": "easy",
+      "distinctive": 1,
+      "alcoholCentred": false,
+      "familyFriendly": true,
+      "stepFree": "unknown",
+      "daysOfWeek": null,
+      "recurrence": null,
+      "schedulingNote": null,
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/Wat_Phra_Yai"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "usm_ang_thong",
+      "placeId": "ko_samui",
+      "title": "Ang Thong National Marine Park by boat",
+      "summary": "A day among limestone islands, with kayaking and a steep climb to a viewpoint.",
+      "tags": [
+        "nature",
+        "adventure",
+        "beach"
+      ],
+      "partOfDay": "any",
+      "durationHours": {
+        "min": 7,
+        "max": 9
+      },
+      "intensity": "moderate",
+      "distinctive": 3,
+      "alcoholCentred": false,
+      "familyFriendly": true,
+      "stepFree": "unknown",
+      "daysOfWeek": null,
+      "recurrence": null,
+      "schedulingNote": "Boats depend on sea conditions.",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/Mu_Ko_Ang_Thong_National_Park"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "usm_fishermans",
+      "placeId": "ko_samui",
+      "title": "Fisherman's Village evening, Bo Phut",
+      "summary": "Old wooden shophouses turned restaurants; a walking-street market is held weekly.",
+      "tags": [
+        "food",
+        "nightlife"
+      ],
+      "partOfDay": "evening",
+      "durationHours": {
+        "min": 2,
+        "max": 3
+      },
+      "intensity": "easy",
+      "distinctive": 2,
+      "alcoholCentred": false,
+      "familyFriendly": true,
+      "stepFree": "unknown",
+      "daysOfWeek": [
+        5
+      ],
+      "recurrence": null,
+      "schedulingNote": "The walking-street market is usually on Fridays. Check the current schedule.",
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Ko_Samui"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "usm_beach",
+      "placeId": "ko_samui",
+      "title": "Beach day at Chaweng or Lamai",
+      "summary": "The island's two busiest stretches of sand, with plenty of shade and food nearby.",
+      "tags": [
+        "beach",
+        "relax"
+      ],
+      "partOfDay": "any",
+      "durationHours": {
+        "min": 3,
+        "max": 6
+      },
+      "intensity": "easy",
+      "distinctive": 1,
+      "alcoholCentred": false,
+      "familyFriendly": true,
+      "stepFree": "unknown",
+      "daysOfWeek": null,
+      "recurrence": null,
+      "schedulingNote": null,
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Ko_Samui",
+        "https://en.wikipedia.org/wiki/Ko_Samui"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "kpn_full_moon",
+      "placeId": "ko_pha_ngan",
+      "title": "Full-moon party at Hat Rin",
+      "summary": "An all-night beach party held around the full moon.",
+      "tags": [
+        "nightlife"
+      ],
+      "partOfDay": "night",
+      "durationHours": {
+        "min": 6,
+        "max": 8
+      },
+      "intensity": "moderate",
+      "distinctive": 3,
+      "alcoholCentred": true,
+      "familyFriendly": false,
+      "stepFree": "unknown",
+      "daysOfWeek": null,
+      "recurrence": {
+        "kind": "lunar_monthly",
+        "note": "Held around each full moon. Dates shift and can move for religious holidays. Never treat a date as confirmed without checking."
+      },
+      "schedulingNote": "Recurring event: the planner will not schedule it on a date for you.",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/Full_Moon_Party",
+        "https://en.wikipedia.org/wiki/Hat_Rin"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "kpn_than_sadet",
+      "placeId": "ko_pha_ngan",
+      "title": "Than Sadet waterfall and beach",
+      "summary": "Waterfalls and a quiet cove in the island's national park on the east coast.",
+      "tags": [
+        "nature",
+        "beach"
+      ],
+      "partOfDay": "morning",
+      "durationHours": {
+        "min": 3,
+        "max": 4
+      },
+      "intensity": "moderate",
+      "distinctive": 2,
+      "alcoholCentred": false,
+      "familyFriendly": true,
+      "stepFree": "unknown",
+      "daysOfWeek": null,
+      "recurrence": null,
+      "schedulingNote": null,
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/Than_Sadet%E2%80%93Ko_Pha-ngan_National_Park"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "kpn_bottle_beach",
+      "placeId": "ko_pha_ngan",
+      "title": "Bottle Beach by longtail boat",
+      "summary": "A secluded northern beach most easily reached by boat.",
+      "tags": [
+        "beach",
+        "relax"
+      ],
+      "partOfDay": "any",
+      "durationHours": {
+        "min": 4,
+        "max": 6
+      },
+      "intensity": "easy",
+      "distinctive": 2,
+      "alcoholCentred": false,
+      "familyFriendly": true,
+      "stepFree": "unknown",
+      "daysOfWeek": null,
+      "recurrence": null,
+      "schedulingNote": null,
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Ko_Pha_Ngan"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "kpn_sunset",
+      "placeId": "ko_pha_ngan",
+      "title": "West-coast sunset",
+      "summary": "The island's west coast faces the sunset; an easy evening.",
+      "tags": [
+        "relax"
+      ],
+      "partOfDay": "evening",
+      "durationHours": {
+        "min": 1,
+        "max": 2
+      },
+      "intensity": "easy",
+      "distinctive": 1,
+      "alcoholCentred": false,
+      "familyFriendly": true,
+      "stepFree": "unknown",
+      "daysOfWeek": null,
+      "recurrence": null,
+      "schedulingNote": null,
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Ko_Pha_Ngan"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "kto_dive",
+      "placeId": "ko_tao",
+      "title": "Try-dive or snorkel trip",
+      "summary": "Ko Tao is one of the region's best-known places to learn to dive.",
+      "tags": [
+        "adventure",
+        "nature"
+      ],
+      "partOfDay": "morning",
+      "durationHours": {
+        "min": 4,
+        "max": 6
+      },
+      "intensity": "moderate",
+      "distinctive": 3,
+      "alcoholCentred": false,
+      "familyFriendly": true,
+      "stepFree": "unknown",
+      "daysOfWeek": null,
+      "recurrence": null,
+      "schedulingNote": "Choose a certified operator. Diving has medical requirements.",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/Ko_Tao"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "kto_nang_yuan",
+      "placeId": "ko_tao",
+      "title": "Ko Nang Yuan",
+      "summary": "Three islets joined by sandbars, with a short climb to a famous viewpoint.",
+      "tags": [
+        "beach",
+        "nature"
+      ],
+      "partOfDay": "morning",
+      "durationHours": {
+        "min": 3,
+        "max": 4
+      },
+      "intensity": "moderate",
+      "distinctive": 3,
+      "alcoholCentred": false,
+      "familyFriendly": true,
+      "stepFree": "unknown",
+      "daysOfWeek": null,
+      "recurrence": null,
+      "schedulingNote": null,
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/Ko_Nang_Yuan"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "kto_viewpoint",
+      "placeId": "ko_tao",
+      "title": "Viewpoint hike",
+      "summary": "A short, steep walk to one of the island's lookouts.",
+      "tags": [
+        "adventure",
+        "nature"
+      ],
+      "partOfDay": "afternoon",
+      "durationHours": {
+        "min": 1,
+        "max": 2
+      },
+      "intensity": "strenuous",
+      "distinctive": 1,
+      "alcoholCentred": false,
+      "familyFriendly": true,
+      "stepFree": "not_step_free",
+      "daysOfWeek": null,
+      "recurrence": null,
+      "schedulingNote": null,
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Ko_Tao"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "ks_cheow_lan",
+      "placeId": "khao_sok",
+      "title": "Cheow Lan Lake by longtail",
+      "summary": "A day or overnight trip on the reservoir among limestone karsts, often with a cave walk.",
+      "tags": [
+        "nature",
+        "adventure"
+      ],
+      "partOfDay": "any",
+      "durationHours": {
+        "min": 6,
+        "max": 8
+      },
+      "intensity": "moderate",
+      "distinctive": 3,
+      "alcoholCentred": false,
+      "familyFriendly": true,
+      "stepFree": "unknown",
+      "daysOfWeek": null,
+      "recurrence": null,
+      "schedulingNote": null,
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/Cheow_Lan_Lake"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "ks_jungle",
+      "placeId": "khao_sok",
+      "title": "Guided rainforest walk",
+      "summary": "Look for gibbons, hornbills and giant plants with a local guide.",
+      "tags": [
+        "nature",
+        "adventure"
+      ],
+      "partOfDay": "morning",
+      "durationHours": {
+        "min": 3,
+        "max": 4
+      },
+      "intensity": "moderate",
+      "distinctive": 2,
+      "alcoholCentred": false,
+      "familyFriendly": true,
+      "stepFree": "unknown",
+      "daysOfWeek": null,
+      "recurrence": null,
+      "schedulingNote": null,
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/Khao_Sok_National_Park"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "ks_river",
+      "placeId": "khao_sok",
+      "title": "River canoe or tubing",
+      "summary": "A gentle float down the river beneath the cliffs.",
+      "tags": [
+        "adventure",
+        "relax"
+      ],
+      "partOfDay": "afternoon",
+      "durationHours": {
+        "min": 2,
+        "max": 3
+      },
+      "intensity": "easy",
+      "distinctive": 1,
+      "alcoholCentred": false,
+      "familyFriendly": true,
+      "stepFree": "unknown",
+      "daysOfWeek": null,
+      "recurrence": null,
+      "schedulingNote": null,
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Khao_Sok_National_Park"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "hkt_old_town",
+      "placeId": "phuket",
+      "title": "Old Phuket Town",
+      "summary": "Sino-Portuguese shophouses, cafés and small museums.",
+      "tags": [
+        "culture",
+        "food"
+      ],
+      "partOfDay": "afternoon",
+      "durationHours": {
+        "min": 2,
+        "max": 3
+      },
+      "intensity": "easy",
+      "distinctive": 2,
+      "alcoholCentred": false,
+      "familyFriendly": true,
+      "stepFree": "unknown",
+      "daysOfWeek": null,
+      "recurrence": null,
+      "schedulingNote": null,
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/Phuket_(city)"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "hkt_big_buddha",
+      "placeId": "phuket",
+      "title": "Big Buddha viewpoint",
+      "summary": "A huge marble Buddha on a hilltop with views across the south of the island.",
+      "tags": [
+        "culture"
+      ],
+      "partOfDay": "morning",
+      "durationHours": {
+        "min": 1,
+        "max": 2
+      },
+      "intensity": "easy",
+      "distinctive": 1,
+      "alcoholCentred": false,
+      "familyFriendly": true,
+      "stepFree": "unknown",
+      "daysOfWeek": null,
+      "recurrence": null,
+      "schedulingNote": null,
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/Phuket_Big_Buddha"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "hkt_phang_nga",
+      "placeId": "phuket",
+      "title": "Phang Nga Bay by boat",
+      "summary": "Limestone towers, sea caves and lagoons by boat or sea kayak.",
+      "tags": [
+        "nature",
+        "adventure"
+      ],
+      "partOfDay": "any",
+      "durationHours": {
+        "min": 7,
+        "max": 9
+      },
+      "intensity": "moderate",
+      "distinctive": 3,
+      "alcoholCentred": false,
+      "familyFriendly": true,
+      "stepFree": "unknown",
+      "daysOfWeek": null,
+      "recurrence": null,
+      "schedulingNote": "Boats depend on sea conditions.",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/Phang_Nga_Bay"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "hkt_bangla",
+      "placeId": "phuket",
+      "title": "Night out in Patong",
+      "summary": "Patong's Bangla Road is the island's loudest nightlife strip.",
+      "tags": [
+        "nightlife"
+      ],
+      "partOfDay": "night",
+      "durationHours": {
+        "min": 3,
+        "max": 4
+      },
+      "intensity": "easy",
+      "distinctive": 1,
+      "alcoholCentred": true,
+      "familyFriendly": false,
+      "stepFree": "unknown",
+      "daysOfWeek": null,
+      "recurrence": null,
+      "schedulingNote": null,
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/Patong"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "hkt_sunday_market",
+      "placeId": "phuket",
+      "title": "Lard Yai Sunday walking street",
+      "summary": "Old Phuket Town's main street becomes a food and craft market.",
+      "tags": [
+        "food",
+        "culture"
+      ],
+      "partOfDay": "evening",
+      "durationHours": {
+        "min": 2,
+        "max": 3
+      },
+      "intensity": "easy",
+      "distinctive": 2,
+      "alcoholCentred": false,
+      "familyFriendly": true,
+      "stepFree": "unknown",
+      "daysOfWeek": [
+        7
+      ],
+      "recurrence": null,
+      "schedulingNote": "Sunday evenings. Check the current schedule.",
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Phuket"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "aon_four_islands",
+      "placeId": "ao_nang",
+      "title": "Four-islands longtail trip",
+      "summary": "A classic day of island beaches, snorkelling and sandbars from Ao Nang beach.",
+      "tags": [
+        "beach",
+        "nature"
+      ],
+      "partOfDay": "any",
+      "durationHours": {
+        "min": 6,
+        "max": 8
+      },
+      "intensity": "easy",
+      "distinctive": 2,
+      "alcoholCentred": false,
+      "familyFriendly": true,
+      "stepFree": "unknown",
+      "daysOfWeek": null,
+      "recurrence": null,
+      "schedulingNote": "Boats depend on sea conditions.",
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Ao_Nang"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "aon_tiger_cave",
+      "placeId": "ao_nang",
+      "title": "Tiger Cave Temple climb",
+      "summary": "Over a thousand steps to a hilltop shrine with views over Krabi's karsts.",
+      "tags": [
+        "culture",
+        "adventure"
+      ],
+      "partOfDay": "morning",
+      "durationHours": {
+        "min": 2,
+        "max": 3
+      },
+      "intensity": "strenuous",
+      "distinctive": 2,
+      "alcoholCentred": false,
+      "familyFriendly": true,
+      "stepFree": "not_step_free",
+      "daysOfWeek": null,
+      "recurrence": null,
+      "schedulingNote": "Very steep. Start early to avoid the heat.",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/Tiger_Cave_Temple"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "rly_climb",
+      "placeId": "railay",
+      "title": "Half-day rock-climbing lesson",
+      "summary": "Railay's limestone walls are a world-famous place to try climbing with a guide.",
+      "tags": [
+        "adventure"
+      ],
+      "partOfDay": "morning",
+      "durationHours": {
+        "min": 3,
+        "max": 4
+      },
+      "intensity": "strenuous",
+      "distinctive": 3,
+      "alcoholCentred": false,
+      "familyFriendly": true,
+      "stepFree": "unknown",
+      "daysOfWeek": null,
+      "recurrence": null,
+      "schedulingNote": null,
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/Railay_Beach"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "rly_phra_nang",
+      "placeId": "railay",
+      "title": "Phra Nang cave beach",
+      "summary": "A beach beneath sheer cliffs with a cave shrine at one end.",
+      "tags": [
+        "beach",
+        "relax"
+      ],
+      "partOfDay": "any",
+      "durationHours": {
+        "min": 3,
+        "max": 5
+      },
+      "intensity": "easy",
+      "distinctive": 2,
+      "alcoholCentred": false,
+      "familyFriendly": true,
+      "stepFree": "unknown",
+      "daysOfWeek": null,
+      "recurrence": null,
+      "schedulingNote": null,
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/Railay_Beach"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "rly_viewpoint",
+      "placeId": "railay",
+      "title": "Viewpoint and lagoon scramble",
+      "summary": "A steep, muddy rope-assisted climb to a viewpoint and hidden lagoon.",
+      "tags": [
+        "adventure",
+        "nature"
+      ],
+      "partOfDay": "morning",
+      "durationHours": {
+        "min": 2,
+        "max": 3
+      },
+      "intensity": "strenuous",
+      "distinctive": 2,
+      "alcoholCentred": false,
+      "familyFriendly": false,
+      "stepFree": "not_step_free",
+      "daysOfWeek": null,
+      "recurrence": null,
+      "schedulingNote": "Steep and slippery; not step-free.",
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Railay"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "lnt_park",
+      "placeId": "ko_lanta",
+      "title": "National park and lighthouse",
+      "summary": "Walk the headland at the island's southern tip.",
+      "tags": [
+        "nature"
+      ],
+      "partOfDay": "morning",
+      "durationHours": {
+        "min": 3,
+        "max": 4
+      },
+      "intensity": "moderate",
+      "distinctive": 2,
+      "alcoholCentred": false,
+      "familyFriendly": true,
+      "stepFree": "unknown",
+      "daysOfWeek": null,
+      "recurrence": null,
+      "schedulingNote": null,
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/Mu_Ko_Lanta_National_Park"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "lnt_old_town",
+      "placeId": "ko_lanta",
+      "title": "Lanta Old Town",
+      "summary": "A waterfront of wooden stilt houses on the quieter east coast.",
+      "tags": [
+        "culture",
+        "food"
+      ],
+      "partOfDay": "afternoon",
+      "durationHours": {
+        "min": 2,
+        "max": 3
+      },
+      "intensity": "easy",
+      "distinctive": 2,
+      "alcoholCentred": false,
+      "familyFriendly": true,
+      "stepFree": "unknown",
+      "daysOfWeek": null,
+      "recurrence": null,
+      "schedulingNote": null,
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Ko_Lanta"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "lnt_snorkel",
+      "placeId": "ko_lanta",
+      "title": "Snorkelling day to the outer islands",
+      "summary": "Boat trips run to reefs and islands off Lanta in the drier season.",
+      "tags": [
+        "beach",
+        "nature",
+        "adventure"
+      ],
+      "partOfDay": "any",
+      "durationHours": {
+        "min": 7,
+        "max": 8
+      },
+      "intensity": "moderate",
+      "distinctive": 2,
+      "alcoholCentred": false,
+      "familyFriendly": true,
+      "stepFree": "unknown",
+      "daysOfWeek": null,
+      "recurrence": null,
+      "schedulingNote": "Usually only in the drier season; depends on sea conditions.",
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Ko_Lanta"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "kul_petronas",
+      "placeId": "kuala_lumpur",
+      "title": "Petronas Towers and KLCC Park",
+      "summary": "The twin towers, best seen from the park as the lights come on.",
+      "tags": [
+        "city"
+      ],
+      "partOfDay": "evening",
+      "durationHours": {
+        "min": 2,
+        "max": 3
+      },
+      "intensity": "easy",
+      "distinctive": 2,
+      "alcoholCentred": false,
+      "familyFriendly": true,
+      "stepFree": "unknown",
+      "daysOfWeek": null,
+      "recurrence": null,
+      "schedulingNote": null,
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/Petronas_Towers"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "kul_batu",
+      "placeId": "kuala_lumpur",
+      "title": "Batu Caves",
+      "summary": "A Hindu temple complex inside limestone caves, up a long, steep staircase.",
+      "tags": [
+        "culture"
+      ],
+      "partOfDay": "morning",
+      "durationHours": {
+        "min": 2,
+        "max": 3
+      },
+      "intensity": "moderate",
+      "distinctive": 3,
+      "alcoholCentred": false,
+      "familyFriendly": true,
+      "stepFree": "not_step_free",
+      "daysOfWeek": null,
+      "recurrence": null,
+      "schedulingNote": null,
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/Batu_Caves"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "kul_jalan_alor",
+      "placeId": "kuala_lumpur",
+      "title": "Jalan Alor food street",
+      "summary": "A street of food stalls and open-air restaurants that comes alive at night.",
+      "tags": [
+        "food",
+        "nightlife"
+      ],
+      "partOfDay": "evening",
+      "durationHours": {
+        "min": 2,
+        "max": 3
+      },
+      "intensity": "easy",
+      "distinctive": 2,
+      "alcoholCentred": false,
+      "familyFriendly": true,
+      "stepFree": "unknown",
+      "daysOfWeek": null,
+      "recurrence": null,
+      "schedulingNote": null,
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/Jalan_Alor"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "kul_merdeka",
+      "placeId": "kuala_lumpur",
+      "title": "Merdeka Square",
+      "summary": "The colonial-era heart of the city where independence was declared.",
+      "tags": [
+        "culture",
+        "city"
+      ],
+      "partOfDay": "morning",
+      "durationHours": {
+        "min": 1,
+        "max": 2
+      },
+      "intensity": "easy",
+      "distinctive": 1,
+      "alcoholCentred": false,
+      "familyFriendly": true,
+      "stepFree": "unknown",
+      "daysOfWeek": null,
+      "recurrence": null,
+      "schedulingNote": null,
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/Merdeka_Square,_Kuala_Lumpur"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "pen_heritage",
+      "placeId": "george_town",
+      "title": "Heritage and street-art walk",
+      "summary": "Clan houses, temples, shophouses and murals in the UNESCO-listed core.",
+      "tags": [
+        "culture",
+        "city"
+      ],
+      "partOfDay": "morning",
+      "durationHours": {
+        "min": 3,
+        "max": 4
+      },
+      "intensity": "easy",
+      "distinctive": 3,
+      "alcoholCentred": false,
+      "familyFriendly": true,
+      "stepFree": "unknown",
+      "daysOfWeek": null,
+      "recurrence": null,
+      "schedulingNote": null,
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/George_Town,_Penang"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "pen_hawker",
+      "placeId": "george_town",
+      "title": "Hawker food crawl",
+      "summary": "Penang is famous for its hawker dishes; graze from stall to stall.",
+      "tags": [
+        "food"
+      ],
+      "partOfDay": "evening",
+      "durationHours": {
+        "min": 2,
+        "max": 3
+      },
+      "intensity": "easy",
+      "distinctive": 3,
+      "alcoholCentred": false,
+      "familyFriendly": true,
+      "stepFree": "unknown",
+      "daysOfWeek": null,
+      "recurrence": null,
+      "schedulingNote": null,
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/George_Town_(Malaysia)"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "pen_hill",
+      "placeId": "george_town",
+      "title": "Penang Hill by funicular",
+      "summary": "Cooler air and views over the island and the strait.",
+      "tags": [
+        "nature"
+      ],
+      "partOfDay": "afternoon",
+      "durationHours": {
+        "min": 2,
+        "max": 4
+      },
+      "intensity": "easy",
+      "distinctive": 2,
+      "alcoholCentred": false,
+      "familyFriendly": true,
+      "stepFree": "partial",
+      "daysOfWeek": null,
+      "recurrence": null,
+      "schedulingNote": null,
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/Penang_Hill"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "pen_kek_lok_si",
+      "placeId": "george_town",
+      "title": "Kek Lok Si Temple",
+      "summary": "A vast hillside Buddhist temple complex with a seven-storey pagoda.",
+      "tags": [
+        "culture"
+      ],
+      "partOfDay": "afternoon",
+      "durationHours": {
+        "min": 2,
+        "max": 3
+      },
+      "intensity": "moderate",
+      "distinctive": 2,
+      "alcoholCentred": false,
+      "familyFriendly": true,
+      "stepFree": "unknown",
+      "daysOfWeek": null,
+      "recurrence": null,
+      "schedulingNote": null,
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/Kek_Lok_Si"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "lgk_skycab",
+      "placeId": "langkawi",
+      "title": "Cable car and Sky Bridge",
+      "summary": "Ride up through the rainforest to a curved bridge high above the trees.",
+      "tags": [
+        "nature",
+        "adventure"
+      ],
+      "partOfDay": "morning",
+      "durationHours": {
+        "min": 2,
+        "max": 4
+      },
+      "intensity": "moderate",
+      "distinctive": 3,
+      "alcoholCentred": false,
+      "familyFriendly": true,
+      "stepFree": "unknown",
+      "daysOfWeek": null,
+      "recurrence": null,
+      "schedulingNote": "Closes in high wind. Check before you go.",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/Langkawi_Cable_Car",
+        "https://en.wikipedia.org/wiki/Langkawi_Sky_Bridge"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "lgk_mangroves",
+      "placeId": "langkawi",
+      "title": "Kilim mangrove boat trip",
+      "summary": "A boat through mangrove rivers and limestone, often with eagles overhead.",
+      "tags": [
+        "nature"
+      ],
+      "partOfDay": "morning",
+      "durationHours": {
+        "min": 3,
+        "max": 4
+      },
+      "intensity": "easy",
+      "distinctive": 2,
+      "alcoholCentred": false,
+      "familyFriendly": true,
+      "stepFree": "unknown",
+      "daysOfWeek": null,
+      "recurrence": null,
+      "schedulingNote": null,
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Langkawi",
+        "https://en.wikipedia.org/wiki/Langkawi"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "lgk_cenang",
+      "placeId": "langkawi",
+      "title": "Beach afternoon at Pantai Cenang",
+      "summary": "The island's main beach, with sunset food stalls nearby.",
+      "tags": [
+        "beach",
+        "relax"
+      ],
+      "partOfDay": "afternoon",
+      "durationHours": {
+        "min": 3,
+        "max": 5
+      },
+      "intensity": "easy",
+      "distinctive": 1,
+      "alcoholCentred": false,
+      "familyFriendly": true,
+      "stepFree": "unknown",
+      "daysOfWeek": null,
+      "recurrence": null,
+      "schedulingNote": null,
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Langkawi"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "sin_gardens",
+      "placeId": "singapore",
+      "title": "Gardens by the Bay",
+      "summary": "Conservatories and the Supertree Grove, which light up in the evening.",
+      "tags": [
+        "nature",
+        "city"
+      ],
+      "partOfDay": "evening",
+      "durationHours": {
+        "min": 2,
+        "max": 3
+      },
+      "intensity": "easy",
+      "distinctive": 3,
+      "alcoholCentred": false,
+      "familyFriendly": true,
+      "stepFree": "unknown",
+      "daysOfWeek": null,
+      "recurrence": null,
+      "schedulingNote": null,
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/Gardens_by_the_Bay"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "sin_hawker",
+      "placeId": "singapore",
+      "title": "Hawker centre lunch",
+      "summary": "Singapore's hawker centres serve excellent dishes cheaply in shared halls.",
+      "tags": [
+        "food"
+      ],
+      "partOfDay": "afternoon",
+      "durationHours": {
+        "min": 1,
+        "max": 2
+      },
+      "intensity": "easy",
+      "distinctive": 3,
+      "alcoholCentred": false,
+      "familyFriendly": true,
+      "stepFree": "unknown",
+      "daysOfWeek": null,
+      "recurrence": null,
+      "schedulingNote": null,
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/Hawker_centre"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "sin_neighbourhoods",
+      "placeId": "singapore",
+      "title": "Little India and Kampong Glam",
+      "summary": "Walk between temples, mosques, spice shops and street murals.",
+      "tags": [
+        "culture",
+        "food"
+      ],
+      "partOfDay": "morning",
+      "durationHours": {
+        "min": 3,
+        "max": 4
+      },
+      "intensity": "easy",
+      "distinctive": 2,
+      "alcoholCentred": false,
+      "familyFriendly": true,
+      "stepFree": "unknown",
+      "daysOfWeek": null,
+      "recurrence": null,
+      "schedulingNote": null,
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/Little_India,_Singapore",
+        "https://en.wikipedia.org/wiki/Kampong_Glam"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    },
+    {
+      "id": "sin_sentosa",
+      "placeId": "singapore",
+      "title": "Sentosa beaches",
+      "summary": "An island resort a short ride from the city with man-made beaches.",
+      "tags": [
+        "beach",
+        "relax"
+      ],
+      "partOfDay": "afternoon",
+      "durationHours": {
+        "min": 3,
+        "max": 4
+      },
+      "intensity": "easy",
+      "distinctive": 1,
+      "alcoholCentred": false,
+      "familyFriendly": true,
+      "stepFree": "unknown",
+      "daysOfWeek": null,
+      "recurrence": null,
+      "schedulingNote": null,
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/Sentosa"
+      ],
+      "checkedAt": "2026-10-31",
+      "dataKind": "curated"
+    }
+  ],
+  "routes": [
+    {
+      "id": "bkk-ayu",
+      "to": "ayutthaya",
+      "mode": "train or road",
+      "durationMinutes": {
+        "min": 60,
+        "max": 120
+      },
+      "note": "Frequent trains and minivans; time depends on traffic and the train.",
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Ayutthaya"
+      ],
+      "checkedAt": "2026-10-31",
+      "evidence": "planning_assumption",
+      "from": "bangkok"
+    },
+    {
+      "id": "bkk-cnx",
+      "to": "chiang_mai",
+      "mode": "flight",
+      "durationMinutes": {
+        "min": 65,
+        "max": 85
+      },
+      "note": "Many daily flights; an overnight train is a slower alternative.",
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Chiang_Mai"
+      ],
+      "checkedAt": "2026-10-31",
+      "evidence": "planning_assumption",
+      "from": "bangkok"
+    },
+    {
+      "id": "ayu-cnx",
+      "to": "chiang_mai",
+      "mode": "train",
+      "durationMinutes": {
+        "min": 540,
+        "max": 720
+      },
+      "note": "Long-distance northern trains stop at Ayutthaya, including overnight services.",
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Ayutthaya",
+        "https://en.wikivoyage.org/wiki/Chiang_Mai"
+      ],
+      "checkedAt": "2026-10-31",
+      "evidence": "planning_assumption",
+      "from": "ayutthaya"
+    },
+    {
+      "id": "bkk-usm",
+      "to": "ko_samui",
+      "mode": "flight",
+      "durationMinutes": {
+        "min": 60,
+        "max": 75
+      },
+      "note": "Direct flights to Samui airport; usually pricier than flying to Surat Thani and taking the ferry.",
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Ko_Samui"
+      ],
+      "checkedAt": "2026-10-31",
+      "evidence": "planning_assumption",
+      "from": "bangkok"
+    },
+    {
+      "id": "bkk-hkt",
+      "to": "phuket",
+      "mode": "flight",
+      "durationMinutes": {
+        "min": 80,
+        "max": 95
+      },
+      "note": "Many daily flights.",
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Phuket"
+      ],
+      "checkedAt": "2026-10-31",
+      "evidence": "planning_assumption",
+      "from": "bangkok"
+    },
+    {
+      "id": "bkk-aon",
+      "to": "ao_nang",
+      "mode": "flight and road",
+      "durationMinutes": {
+        "min": 105,
+        "max": 150
+      },
+      "note": "Flight to Krabi airport, then road to Ao Nang.",
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Ao_Nang"
+      ],
+      "checkedAt": "2026-10-31",
+      "evidence": "planning_assumption",
+      "from": "bangkok"
+    },
+    {
+      "id": "bkk-kul",
+      "to": "kuala_lumpur",
+      "mode": "flight",
+      "durationMinutes": {
+        "min": 120,
+        "max": 140
+      },
+      "note": "Frequent international flights.",
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Kuala_Lumpur"
+      ],
+      "checkedAt": "2026-10-31",
+      "evidence": "planning_assumption",
+      "from": "bangkok"
+    },
+    {
+      "id": "bkk-sin",
+      "to": "singapore",
+      "mode": "flight",
+      "durationMinutes": {
+        "min": 135,
+        "max": 155
+      },
+      "note": "Frequent international flights.",
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Singapore"
+      ],
+      "checkedAt": "2026-10-31",
+      "evidence": "planning_assumption",
+      "from": "bangkok"
+    },
+    {
+      "id": "bkk-pen",
+      "to": "george_town",
+      "mode": "flight",
+      "durationMinutes": {
+        "min": 105,
+        "max": 130
+      },
+      "note": "International flights to Penang airport.",
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Penang"
+      ],
+      "checkedAt": "2026-10-31",
+      "evidence": "planning_assumption",
+      "from": "bangkok"
+    },
+    {
+      "id": "bkk-kpn",
+      "to": "ko_pha_ngan",
+      "mode": "flight and ferry",
+      "durationMinutes": {
+        "min": 210,
+        "max": 360
+      },
+      "note": "Fly to Samui or Surat Thani, then take a ferry.",
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Ko_Pha_Ngan"
+      ],
+      "checkedAt": "2026-10-31",
+      "evidence": "planning_assumption",
+      "from": "bangkok"
+    },
+    {
+      "id": "bkk-kto",
+      "to": "ko_tao",
+      "mode": "train or bus and ferry",
+      "durationMinutes": {
+        "min": 600,
+        "max": 780
+      },
+      "note": "Often done overnight via Chumphon, then by ferry.",
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Ko_Tao"
+      ],
+      "checkedAt": "2026-10-31",
+      "evidence": "planning_assumption",
+      "from": "bangkok"
+    },
+    {
+      "id": "cnx-hkt",
+      "to": "phuket",
+      "mode": "flight",
+      "durationMinutes": {
+        "min": 120,
+        "max": 140
+      },
+      "note": "Direct flights have operated on this route; check current schedules.",
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Chiang_Mai",
+        "https://en.wikivoyage.org/wiki/Phuket"
+      ],
+      "checkedAt": "2026-10-31",
+      "evidence": "planning_assumption",
+      "from": "chiang_mai"
+    },
+    {
+      "id": "cnx-kul",
+      "to": "kuala_lumpur",
+      "mode": "flight",
+      "durationMinutes": {
+        "min": 165,
+        "max": 190
+      },
+      "note": "Direct flights have operated on this route; check current schedules.",
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Chiang_Mai",
+        "https://en.wikivoyage.org/wiki/Kuala_Lumpur"
+      ],
+      "checkedAt": "2026-10-31",
+      "evidence": "planning_assumption",
+      "from": "chiang_mai"
+    },
+    {
+      "id": "usm-kpn",
+      "to": "ko_pha_ngan",
+      "mode": "ferry",
+      "durationMinutes": {
+        "min": 30,
+        "max": 60
+      },
+      "note": "Frequent ferries and speedboats.",
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Ko_Pha_Ngan"
+      ],
+      "checkedAt": "2026-10-31",
+      "evidence": "planning_assumption",
+      "from": "ko_samui"
+    },
+    {
+      "id": "usm-kto",
+      "to": "ko_tao",
+      "mode": "ferry",
+      "durationMinutes": {
+        "min": 90,
+        "max": 150
+      },
+      "note": "Ferries and speedboats, often calling at Ko Pha-ngan.",
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Ko_Tao"
+      ],
+      "checkedAt": "2026-10-31",
+      "evidence": "planning_assumption",
+      "from": "ko_samui"
+    },
+    {
+      "id": "kpn-kto",
+      "to": "ko_tao",
+      "mode": "ferry",
+      "durationMinutes": {
+        "min": 60,
+        "max": 90
+      },
+      "note": "Ferries and speedboats.",
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Ko_Tao"
+      ],
+      "checkedAt": "2026-10-31",
+      "evidence": "planning_assumption",
+      "from": "ko_pha_ngan"
+    },
+    {
+      "id": "usm-hkt",
+      "to": "phuket",
+      "mode": "flight",
+      "durationMinutes": {
+        "min": 50,
+        "max": 65
+      },
+      "note": "Direct flights between the islands.",
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Ko_Samui"
+      ],
+      "checkedAt": "2026-10-31",
+      "evidence": "planning_assumption",
+      "from": "ko_samui"
+    },
+    {
+      "id": "usm-sin",
+      "to": "singapore",
+      "mode": "flight",
+      "durationMinutes": {
+        "min": 95,
+        "max": 120
+      },
+      "note": "Direct international flights from Samui have operated; check current schedules.",
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Ko_Samui"
+      ],
+      "checkedAt": "2026-10-31",
+      "evidence": "planning_assumption",
+      "from": "ko_samui"
+    },
+    {
+      "id": "usm-ks",
+      "to": "khao_sok",
+      "mode": "ferry and road",
+      "durationMinutes": {
+        "min": 300,
+        "max": 420
+      },
+      "note": "Car ferry to the mainland, then road west.",
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Khao_Sok_National_Park"
+      ],
+      "checkedAt": "2026-10-31",
+      "evidence": "planning_assumption",
+      "from": "ko_samui"
+    },
+    {
+      "id": "usm-aon",
+      "to": "ao_nang",
+      "mode": "ferry and road",
+      "durationMinutes": {
+        "min": 330,
+        "max": 480
+      },
+      "note": "Combined ferry-and-bus tickets are widely sold.",
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Ao_Nang",
+        "https://en.wikivoyage.org/wiki/Ko_Samui"
+      ],
+      "checkedAt": "2026-10-31",
+      "evidence": "planning_assumption",
+      "from": "ko_samui"
+    },
+    {
+      "id": "kpn-aon",
+      "to": "ao_nang",
+      "mode": "ferry and road",
+      "durationMinutes": {
+        "min": 360,
+        "max": 540
+      },
+      "note": "Combined ferry-and-bus tickets via the mainland.",
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Ao_Nang",
+        "https://en.wikivoyage.org/wiki/Ko_Pha_Ngan"
+      ],
+      "checkedAt": "2026-10-31",
+      "evidence": "planning_assumption",
+      "from": "ko_pha_ngan"
+    },
+    {
+      "id": "hkt-aon",
+      "to": "ao_nang",
+      "mode": "road or ferry",
+      "durationMinutes": {
+        "min": 120,
+        "max": 210
+      },
+      "note": "Road transfer, or a ferry in the drier season.",
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Ao_Nang",
+        "https://en.wikivoyage.org/wiki/Phuket"
+      ],
+      "checkedAt": "2026-10-31",
+      "evidence": "planning_assumption",
+      "from": "phuket"
+    },
+    {
+      "id": "hkt-rly",
+      "to": "railay",
+      "mode": "ferry or road and boat",
+      "durationMinutes": {
+        "min": 150,
+        "max": 240
+      },
+      "note": "Ferry, or road to Ao Nang and a longtail boat.",
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Railay"
+      ],
+      "checkedAt": "2026-10-31",
+      "evidence": "planning_assumption",
+      "from": "phuket"
+    },
+    {
+      "id": "hkt-ks",
+      "to": "khao_sok",
+      "mode": "road",
+      "durationMinutes": {
+        "min": 150,
+        "max": 210
+      },
+      "note": "Road transfer or bus.",
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Khao_Sok_National_Park"
+      ],
+      "checkedAt": "2026-10-31",
+      "evidence": "planning_assumption",
+      "from": "phuket"
+    },
+    {
+      "id": "hkt-lnt",
+      "to": "ko_lanta",
+      "mode": "ferry or road",
+      "durationMinutes": {
+        "min": 150,
+        "max": 300
+      },
+      "note": "Ferry in the drier season; road with a short car ferry otherwise.",
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Ko_Lanta"
+      ],
+      "checkedAt": "2026-10-31",
+      "evidence": "planning_assumption",
+      "from": "phuket"
+    },
+    {
+      "id": "hkt-kul",
+      "to": "kuala_lumpur",
+      "mode": "flight",
+      "durationMinutes": {
+        "min": 80,
+        "max": 100
+      },
+      "note": "International flights.",
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Phuket"
+      ],
+      "checkedAt": "2026-10-31",
+      "evidence": "planning_assumption",
+      "from": "phuket"
+    },
+    {
+      "id": "hkt-sin",
+      "to": "singapore",
+      "mode": "flight",
+      "durationMinutes": {
+        "min": 105,
+        "max": 125
+      },
+      "note": "International flights.",
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Phuket"
+      ],
+      "checkedAt": "2026-10-31",
+      "evidence": "planning_assumption",
+      "from": "phuket"
+    },
+    {
+      "id": "aon-rly",
+      "to": "railay",
+      "mode": "longtail boat",
+      "durationMinutes": {
+        "min": 10,
+        "max": 20
+      },
+      "note": "Longtail boats leave from the beach when full; depends on tide and sea.",
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Railay"
+      ],
+      "checkedAt": "2026-10-31",
+      "evidence": "planning_assumption",
+      "from": "ao_nang"
+    },
+    {
+      "id": "aon-lnt",
+      "to": "ko_lanta",
+      "mode": "road and car ferry",
+      "durationMinutes": {
+        "min": 90,
+        "max": 150
+      },
+      "note": "Minivans with short car-ferry crossings.",
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Ko_Lanta"
+      ],
+      "checkedAt": "2026-10-31",
+      "evidence": "planning_assumption",
+      "from": "ao_nang"
+    },
+    {
+      "id": "aon-ks",
+      "to": "khao_sok",
+      "mode": "road",
+      "durationMinutes": {
+        "min": 120,
+        "max": 180
+      },
+      "note": "Road transfer or bus.",
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Khao_Sok_National_Park"
+      ],
+      "checkedAt": "2026-10-31",
+      "evidence": "planning_assumption",
+      "from": "ao_nang"
+    },
+    {
+      "id": "rly-lnt",
+      "to": "ko_lanta",
+      "mode": "ferry",
+      "durationMinutes": {
+        "min": 90,
+        "max": 150
+      },
+      "note": "Seasonal ferries; otherwise via Ao Nang by road.",
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Ko_Lanta",
+        "https://en.wikivoyage.org/wiki/Railay"
+      ],
+      "checkedAt": "2026-10-31",
+      "evidence": "planning_assumption",
+      "from": "railay"
+    },
+    {
+      "id": "aon-kul",
+      "to": "kuala_lumpur",
+      "mode": "road and flight",
+      "durationMinutes": {
+        "min": 120,
+        "max": 170
+      },
+      "note": "Road to Krabi airport, then an international flight.",
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Ao_Nang"
+      ],
+      "checkedAt": "2026-10-31",
+      "evidence": "planning_assumption",
+      "from": "ao_nang"
+    },
+    {
+      "id": "kul-pen",
+      "to": "george_town",
+      "mode": "flight or train",
+      "durationMinutes": {
+        "min": 50,
+        "max": 300
+      },
+      "note": "About an hour by air, or around four hours by train and ferry.",
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Penang",
+        "https://en.wikivoyage.org/wiki/Kuala_Lumpur"
+      ],
+      "checkedAt": "2026-10-31",
+      "evidence": "planning_assumption",
+      "from": "kuala_lumpur"
+    },
+    {
+      "id": "kul-lgk",
+      "to": "langkawi",
+      "mode": "flight",
+      "durationMinutes": {
+        "min": 55,
+        "max": 70
+      },
+      "note": "Frequent domestic flights.",
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Langkawi"
+      ],
+      "checkedAt": "2026-10-31",
+      "evidence": "planning_assumption",
+      "from": "kuala_lumpur"
+    },
+    {
+      "id": "pen-lgk",
+      "to": "langkawi",
+      "mode": "flight or ferry",
+      "durationMinutes": {
+        "min": 30,
+        "max": 180
+      },
+      "note": "Short flights, or a ferry of about three hours.",
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Langkawi"
+      ],
+      "checkedAt": "2026-10-31",
+      "evidence": "planning_assumption",
+      "from": "george_town"
+    },
+    {
+      "id": "kul-sin",
+      "to": "singapore",
+      "mode": "flight or bus",
+      "durationMinutes": {
+        "min": 55,
+        "max": 420
+      },
+      "note": "About an hour by air, or five to seven hours by bus.",
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Singapore",
+        "https://en.wikivoyage.org/wiki/Kuala_Lumpur"
+      ],
+      "checkedAt": "2026-10-31",
+      "evidence": "planning_assumption",
+      "from": "kuala_lumpur"
+    },
+    {
+      "id": "pen-sin",
+      "to": "singapore",
+      "mode": "flight",
+      "durationMinutes": {
+        "min": 80,
+        "max": 95
+      },
+      "note": "International flights.",
+      "sourceUrls": [
+        "https://en.wikivoyage.org/wiki/Penang"
+      ],
+      "checkedAt": "2026-10-31",
+      "evidence": "planning_assumption",
+      "from": "george_town"
+    }
+  ],
+  "events": []
+}
